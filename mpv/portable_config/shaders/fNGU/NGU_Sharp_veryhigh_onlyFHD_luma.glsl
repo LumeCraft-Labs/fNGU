@@ -1,4314 +1,1026 @@
 /*
- * ver. 0.1.0
+ * ver. 0.2.0
  */
 
 
 //!HOOK LUMA
 //!BIND HOOKED
 //!BIND LUMA_INITIAL_CONSTANTS
-//!SAVE LUMA_INITIAL_0
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubici1 output 0
+//!SAVE LUMA_FEATURE_A
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubici1 initial 3-pane
+//!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 24 8 8 8
 
-vec4 ngu_luma_initial_u(int index) {
-    return texelFetch(LUMA_INITIAL_CONSTANTS, ivec2(index, 0), 0);
-}
-vec4 ngu_luma_initial_fetch(vec2 pos) {
-    ivec2 size = textureSize(HOOKED_raw, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    float value = texelFetch(HOOKED_raw, p, 0).x * HOOKED_mul;
-    return vec4(value, value, value, 1.0);
-}
-vec4 ngu_luma_initial_fetch(vec4 pos) { return ngu_luma_initial_fetch(pos.xy); }
-vec4 ngu_luma_initial_body(int output_index) {
-    vec4 DL32 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_initial_u(31)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_initial_fetch(w1);
-    vec4 w3 = ngu_luma_initial_u(0);
-    vec4 w4 = (w2.xxxx * w3 + ngu_luma_initial_u(27));
-    vec4 e5 = DL32;
-    vec4 w5 = vec4(e5.x, e5.y, e5.z, r2_init.w);
-    vec4 w6 = (ngu_luma_initial_u(31).xyxy * w5.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w7 = ngu_luma_initial_fetch(w6);
-    vec4 w8 = ngu_luma_initial_fetch(w6.zwzw);
-    vec4 w9 = (w7.xxxx * ngu_luma_initial_u(1) + w4);
-    vec4 w10 = (w8.xxxx * ngu_luma_initial_u(2) + w9);
-    vec4 w11 = (ngu_luma_initial_u(31).xyxy * w5.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w12 = ngu_luma_initial_fetch(w11);
-    vec4 w13 = ngu_luma_initial_fetch(w11.zwzw);
-    vec4 w14 = (w12.xxxx * ngu_luma_initial_u(3) + w10);
-    vec4 w15 = ngu_luma_initial_fetch(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w16 = (w15.xxxx * ngu_luma_initial_u(4) + w14);
-    vec4 w17 = (w13.xxxx * ngu_luma_initial_u(5) + w16);
-    vec4 w18 = (ngu_luma_initial_u(31).xyxy * w5.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w19 = ngu_luma_initial_fetch(w18);
-    vec4 w20 = ngu_luma_initial_fetch(w18.zwzw);
-    vec4 w21 = (w19.xxxx * ngu_luma_initial_u(6) + w17);
-    vec4 w22 = (w20.xxxx * ngu_luma_initial_u(7) + w21);
-    vec4 e23 = (ngu_luma_initial_u(31).xxyw + vec4(HOOKED_pos, 0.0, 1.0).xxyw);
-    vec4 w23 = vec4(w2.x, e23.y, e23.z, w2.w);
-    vec4 w24 = ngu_luma_initial_fetch(w23.yzzw);
-    vec4 w25 = (w24.xxxx * ngu_luma_initial_u(8) + w22);
-    vec4 w26 = (w25 * ngu_luma_initial_u(30).xxxx);
-    vec4 w27 = mix(vec4(0.0), w26, lessThan(w25, vec4(0.0)));
-    vec4 w28 = max(w25, DL32.xxxx);
-    vec4 w29 = (w27 + w28);
-    vec4 w30 = ngu_luma_initial_u(9);
-    vec4 w31 = (w23.xxxx * w30 + ngu_luma_initial_u(28));
-    vec4 w32 = ngu_luma_initial_u(18);
-    vec4 w33 = (w23.xxxx * w32 + ngu_luma_initial_u(29));
-    vec4 w34 = (w7.xxxx * ngu_luma_initial_u(19) + w33);
-    vec4 w35 = (w7.xxxx * ngu_luma_initial_u(10) + w31);
-    vec4 w36 = (w8.xxxx * ngu_luma_initial_u(11) + w35);
-    vec4 w37 = (w8.xxxx * ngu_luma_initial_u(20) + w34);
-    vec4 w38 = (w12.xxxx * ngu_luma_initial_u(21) + w37);
-    vec4 w39 = (w12.xxxx * ngu_luma_initial_u(12) + w36);
-    vec4 w40 = (w15.xxxx * ngu_luma_initial_u(13) + w39);
-    vec4 w41 = (w15.xxxx * ngu_luma_initial_u(22) + w38);
-    vec4 w42 = (w13.xxxx * ngu_luma_initial_u(23) + w41);
-    vec4 w43 = (w13.xxxx * ngu_luma_initial_u(14) + w40);
-    vec4 w44 = (w19.xxxx * ngu_luma_initial_u(15) + w43);
-    vec4 w45 = (w19.xxxx * ngu_luma_initial_u(24) + w42);
-    vec4 w46 = (w20.xxxx * ngu_luma_initial_u(25) + w45);
-    vec4 w47 = (w20.xxxx * ngu_luma_initial_u(16) + w44);
-    vec4 w48 = (w24.xxxx * ngu_luma_initial_u(17) + w47);
-    vec4 w49 = (w24.xxxx * ngu_luma_initial_u(26) + w46);
-    vec4 w50 = (w48 * ngu_luma_initial_u(30).xxxx);
-    vec4 w51 = mix(vec4(0.0), w50, lessThan(w48, vec4(0.0)));
-    vec4 w52 = max(w48, DL32.xxxx);
-    vec4 w53 = (w51 + w52);
-    vec4 w54 = (w49 * ngu_luma_initial_u(30).xxxx);
-    vec4 w55 = mix(vec4(0.0), w54, lessThan(w49, vec4(0.0)));
-    vec4 w56 = max(w49, DL32.xxxx);
-    vec4 w57 = (w55 + w56);
+#extension GL_EXT_shader_explicit_arithmetic_types_float16 : enable
+#ifdef GL_EXT_shader_explicit_arithmetic_types_float16
+#    define V4 f16vec4
+#    define M4 f16mat4
+#    define F float16_t
+#else
+#    define V4 vec4
+#    define M4 mat4
+#    define F float
+#endif
 
-    vec4 out0 = w29;
-    vec4 out1 = w2.x * ngu_luma_initial_u(9) + ngu_luma_initial_u(28);
-    out1 = w7.x * ngu_luma_initial_u(10) + out1;
-    out1 = w8.x * ngu_luma_initial_u(11) + out1;
-    out1 = w12.x * ngu_luma_initial_u(12) + out1;
-    out1 = w15.x * ngu_luma_initial_u(13) + out1;
-    out1 = w13.x * ngu_luma_initial_u(14) + out1;
-    out1 = w19.x * ngu_luma_initial_u(15) + out1;
-    out1 = w20.x * ngu_luma_initial_u(16) + out1;
-    out1 = w24.x * ngu_luma_initial_u(17) + out1;
-    out1 = mix(vec4(0.0), out1 * ngu_luma_initial_u(30).xxxx, lessThan(out1, vec4(0.0)))
-         + max(out1, vec4(0.0));
-    vec4 out2 = w2.x * ngu_luma_initial_u(18) + ngu_luma_initial_u(29);
-    out2 = w7.x * ngu_luma_initial_u(19) + out2;
-    out2 = w8.x * ngu_luma_initial_u(20) + out2;
-    out2 = w12.x * ngu_luma_initial_u(21) + out2;
-    out2 = w15.x * ngu_luma_initial_u(22) + out2;
-    out2 = w13.x * ngu_luma_initial_u(23) + out2;
-    out2 = w19.x * ngu_luma_initial_u(24) + out2;
-    out2 = w20.x * ngu_luma_initial_u(25) + out2;
-    out2 = w24.x * ngu_luma_initial_u(26) + out2;
-    out2 = mix(vec4(0.0), out2 * ngu_luma_initial_u(30).xxxx, lessThan(out2, vec4(0.0)))
-         + max(out2, vec4(0.0));
-    return output_index == 0 ? out0 : output_index == 1 ? out1 : out2;
+shared vec4 ngu_luma_initial_constants[32];
+
+vec4 ngu_luma_initial_constant(int index) {
+    return ngu_luma_initial_constants[index];
 }
-vec4 hook() { return ngu_luma_initial_body(0); }
+V4 ngu_luma_initial_weight(int index) {
+    return V4(ngu_luma_initial_constant(index));
+}
+V4 ngu_luma_initial_fetch(vec2 position) {
+    const ivec2 size = textureSize(HOOKED_raw, 0);
+    const ivec2 pixel = clamp(
+        ivec2(floor(position * vec2(size))),
+        ivec2(0),
+        size - ivec2(1));
+    const F luma = F(texelFetch(HOOKED_raw, pixel, 0).x * HOOKED_mul);
+    return V4(luma, F(0.0), F(0.0), F(1.0));
+}
+V4 ngu_luma_initial_leaky_relu(V4 value) {
+    const F slope = F(ngu_luma_initial_constant(30).x);
+    return max(value, V4(0.0)) + min(value, V4(0.0)) * slope;
+}
+void ngu_luma_initial_body(
+    ivec2 logical_pixel,
+    out V4 feature0,
+    out V4 feature1,
+    out V4 feature2
+) {
+    const vec4 pt = ngu_luma_initial_constant(31);
+    const vec4 center =
+        vec4((vec2(logical_pixel) + vec2(0.5)) * HOOKED_pt, 0.0, 1.0);
+    const V4 sample0 = ngu_luma_initial_fetch((center - pt).xy);
+    const vec4 offsets = vec4(0.0, -1.0, 1.0, 0.0);
+    const vec4 positionA = pt.xyxy * offsets.xyzy + center.xyxy;
+    const V4 sampleA0 = ngu_luma_initial_fetch(positionA.xy);
+    const V4 sampleA1 = ngu_luma_initial_fetch(positionA.zw);
+    const vec4 positionB = pt.xyxy * offsets.yxzx + center.xyxy;
+    const V4 sampleB0 = ngu_luma_initial_fetch(positionB.xy);
+    const V4 sampleB1 = ngu_luma_initial_fetch(positionB.zw);
+    const V4 centerSample = ngu_luma_initial_fetch(center.xy);
+    const vec4 positionC = pt.xyxy * offsets.yzxz + center.xyxy;
+    const V4 sampleC0 = ngu_luma_initial_fetch(positionC.xy);
+    const V4 sampleC1 = ngu_luma_initial_fetch(positionC.zw);
+    const vec4 offsetD = pt.xxyw + center.xxyw;
+    const V4 diagonal = ngu_luma_initial_fetch(offsetD.yz);
+
+    feature0 = sample0.x * ngu_luma_initial_weight(0) +
+        ngu_luma_initial_weight(27);
+    feature0 = sampleA0.x * ngu_luma_initial_weight(1) + feature0;
+    feature0 = sampleA1.x * ngu_luma_initial_weight(2) + feature0;
+    feature0 = sampleB0.x * ngu_luma_initial_weight(3) + feature0;
+    feature0 = centerSample.x * ngu_luma_initial_weight(4) + feature0;
+    feature0 = sampleB1.x * ngu_luma_initial_weight(5) + feature0;
+    feature0 = sampleC0.x * ngu_luma_initial_weight(6) + feature0;
+    feature0 = sampleC1.x * ngu_luma_initial_weight(7) + feature0;
+    feature0 = diagonal.x * ngu_luma_initial_weight(8) + feature0;
+
+    feature1 = sample0.x * ngu_luma_initial_weight(9) +
+        ngu_luma_initial_weight(28);
+    feature1 = sampleA0.x * ngu_luma_initial_weight(10) + feature1;
+    feature1 = sampleA1.x * ngu_luma_initial_weight(11) + feature1;
+    feature1 = sampleB0.x * ngu_luma_initial_weight(12) + feature1;
+    feature1 = centerSample.x * ngu_luma_initial_weight(13) + feature1;
+    feature1 = sampleB1.x * ngu_luma_initial_weight(14) + feature1;
+    feature1 = sampleC0.x * ngu_luma_initial_weight(15) + feature1;
+    feature1 = sampleC1.x * ngu_luma_initial_weight(16) + feature1;
+    feature1 = diagonal.x * ngu_luma_initial_weight(17) + feature1;
+
+    feature2 = sample0.x * ngu_luma_initial_weight(18) +
+        ngu_luma_initial_weight(29);
+    feature2 = sampleA0.x * ngu_luma_initial_weight(19) + feature2;
+    feature2 = sampleA1.x * ngu_luma_initial_weight(20) + feature2;
+    feature2 = sampleB0.x * ngu_luma_initial_weight(21) + feature2;
+    feature2 = centerSample.x * ngu_luma_initial_weight(22) + feature2;
+    feature2 = sampleB1.x * ngu_luma_initial_weight(23) + feature2;
+    feature2 = sampleC0.x * ngu_luma_initial_weight(24) + feature2;
+    feature2 = sampleC1.x * ngu_luma_initial_weight(25) + feature2;
+    feature2 = diagonal.x * ngu_luma_initial_weight(26) + feature2;
+
+    feature0 = ngu_luma_initial_leaky_relu(feature0);
+    feature1 = ngu_luma_initial_leaky_relu(feature1);
+    feature2 = ngu_luma_initial_leaky_relu(feature2);
+}
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 32u; i += thread_count) {
+        ngu_luma_initial_constants[i] =
+            texelFetch(LUMA_INITIAL_CONSTANTS, ivec2(int(i), 0), 0);
+    }
+    barrier();
+
+    const ivec2 logical_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(logical_pixel, ivec2(HOOKED_size)))) {
+        return;
+    }
+    V4 feature0;
+    V4 feature1;
+    V4 feature2;
+    ngu_luma_initial_body(logical_pixel, feature0, feature1, feature2);
+    const ivec2 packed = logical_pixel * ivec2(3, 1);
+    imageStore(out_image, packed + ivec2(0, 0), vec4(feature0));
+    imageStore(out_image, packed + ivec2(1, 0), vec4(feature1));
+    imageStore(out_image, packed + ivec2(2, 0), vec4(feature2));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
-//!BIND LUMA_INITIAL_CONSTANTS
-//!SAVE LUMA_INITIAL_1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubici1 output 1
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-vec4 ngu_luma_initial_u(int index) {
-    return texelFetch(LUMA_INITIAL_CONSTANTS, ivec2(index, 0), 0);
-}
-vec4 ngu_luma_initial_fetch(vec2 pos) {
-    ivec2 size = textureSize(HOOKED_raw, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    float value = texelFetch(HOOKED_raw, p, 0).x * HOOKED_mul;
-    return vec4(value, value, value, 1.0);
-}
-vec4 ngu_luma_initial_fetch(vec4 pos) { return ngu_luma_initial_fetch(pos.xy); }
-vec4 ngu_luma_initial_body(int output_index) {
-    vec4 DL32 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_initial_u(31)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_initial_fetch(w1);
-    vec4 w3 = ngu_luma_initial_u(0);
-    vec4 w4 = (w2.xxxx * w3 + ngu_luma_initial_u(27));
-    vec4 e5 = DL32;
-    vec4 w5 = vec4(e5.x, e5.y, e5.z, r2_init.w);
-    vec4 w6 = (ngu_luma_initial_u(31).xyxy * w5.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w7 = ngu_luma_initial_fetch(w6);
-    vec4 w8 = ngu_luma_initial_fetch(w6.zwzw);
-    vec4 w9 = (w7.xxxx * ngu_luma_initial_u(1) + w4);
-    vec4 w10 = (w8.xxxx * ngu_luma_initial_u(2) + w9);
-    vec4 w11 = (ngu_luma_initial_u(31).xyxy * w5.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w12 = ngu_luma_initial_fetch(w11);
-    vec4 w13 = ngu_luma_initial_fetch(w11.zwzw);
-    vec4 w14 = (w12.xxxx * ngu_luma_initial_u(3) + w10);
-    vec4 w15 = ngu_luma_initial_fetch(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w16 = (w15.xxxx * ngu_luma_initial_u(4) + w14);
-    vec4 w17 = (w13.xxxx * ngu_luma_initial_u(5) + w16);
-    vec4 w18 = (ngu_luma_initial_u(31).xyxy * w5.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w19 = ngu_luma_initial_fetch(w18);
-    vec4 w20 = ngu_luma_initial_fetch(w18.zwzw);
-    vec4 w21 = (w19.xxxx * ngu_luma_initial_u(6) + w17);
-    vec4 w22 = (w20.xxxx * ngu_luma_initial_u(7) + w21);
-    vec4 e23 = (ngu_luma_initial_u(31).xxyw + vec4(HOOKED_pos, 0.0, 1.0).xxyw);
-    vec4 w23 = vec4(w2.x, e23.y, e23.z, w2.w);
-    vec4 w24 = ngu_luma_initial_fetch(w23.yzzw);
-    vec4 w25 = (w24.xxxx * ngu_luma_initial_u(8) + w22);
-    vec4 w26 = (w25 * ngu_luma_initial_u(30).xxxx);
-    vec4 w27 = mix(vec4(0.0), w26, lessThan(w25, vec4(0.0)));
-    vec4 w28 = max(w25, DL32.xxxx);
-    vec4 w29 = (w27 + w28);
-    vec4 w30 = ngu_luma_initial_u(9);
-    vec4 w31 = (w23.xxxx * w30 + ngu_luma_initial_u(28));
-    vec4 w32 = ngu_luma_initial_u(18);
-    vec4 w33 = (w23.xxxx * w32 + ngu_luma_initial_u(29));
-    vec4 w34 = (w7.xxxx * ngu_luma_initial_u(19) + w33);
-    vec4 w35 = (w7.xxxx * ngu_luma_initial_u(10) + w31);
-    vec4 w36 = (w8.xxxx * ngu_luma_initial_u(11) + w35);
-    vec4 w37 = (w8.xxxx * ngu_luma_initial_u(20) + w34);
-    vec4 w38 = (w12.xxxx * ngu_luma_initial_u(21) + w37);
-    vec4 w39 = (w12.xxxx * ngu_luma_initial_u(12) + w36);
-    vec4 w40 = (w15.xxxx * ngu_luma_initial_u(13) + w39);
-    vec4 w41 = (w15.xxxx * ngu_luma_initial_u(22) + w38);
-    vec4 w42 = (w13.xxxx * ngu_luma_initial_u(23) + w41);
-    vec4 w43 = (w13.xxxx * ngu_luma_initial_u(14) + w40);
-    vec4 w44 = (w19.xxxx * ngu_luma_initial_u(15) + w43);
-    vec4 w45 = (w19.xxxx * ngu_luma_initial_u(24) + w42);
-    vec4 w46 = (w20.xxxx * ngu_luma_initial_u(25) + w45);
-    vec4 w47 = (w20.xxxx * ngu_luma_initial_u(16) + w44);
-    vec4 w48 = (w24.xxxx * ngu_luma_initial_u(17) + w47);
-    vec4 w49 = (w24.xxxx * ngu_luma_initial_u(26) + w46);
-    vec4 w50 = (w48 * ngu_luma_initial_u(30).xxxx);
-    vec4 w51 = mix(vec4(0.0), w50, lessThan(w48, vec4(0.0)));
-    vec4 w52 = max(w48, DL32.xxxx);
-    vec4 w53 = (w51 + w52);
-    vec4 w54 = (w49 * ngu_luma_initial_u(30).xxxx);
-    vec4 w55 = mix(vec4(0.0), w54, lessThan(w49, vec4(0.0)));
-    vec4 w56 = max(w49, DL32.xxxx);
-    vec4 w57 = (w55 + w56);
-
-    vec4 out0 = w29;
-    vec4 out1 = w2.x * ngu_luma_initial_u(9) + ngu_luma_initial_u(28);
-    out1 = w7.x * ngu_luma_initial_u(10) + out1;
-    out1 = w8.x * ngu_luma_initial_u(11) + out1;
-    out1 = w12.x * ngu_luma_initial_u(12) + out1;
-    out1 = w15.x * ngu_luma_initial_u(13) + out1;
-    out1 = w13.x * ngu_luma_initial_u(14) + out1;
-    out1 = w19.x * ngu_luma_initial_u(15) + out1;
-    out1 = w20.x * ngu_luma_initial_u(16) + out1;
-    out1 = w24.x * ngu_luma_initial_u(17) + out1;
-    out1 = mix(vec4(0.0), out1 * ngu_luma_initial_u(30).xxxx, lessThan(out1, vec4(0.0)))
-         + max(out1, vec4(0.0));
-    vec4 out2 = w2.x * ngu_luma_initial_u(18) + ngu_luma_initial_u(29);
-    out2 = w7.x * ngu_luma_initial_u(19) + out2;
-    out2 = w8.x * ngu_luma_initial_u(20) + out2;
-    out2 = w12.x * ngu_luma_initial_u(21) + out2;
-    out2 = w15.x * ngu_luma_initial_u(22) + out2;
-    out2 = w13.x * ngu_luma_initial_u(23) + out2;
-    out2 = w19.x * ngu_luma_initial_u(24) + out2;
-    out2 = w20.x * ngu_luma_initial_u(25) + out2;
-    out2 = w24.x * ngu_luma_initial_u(26) + out2;
-    out2 = mix(vec4(0.0), out2 * ngu_luma_initial_u(30).xxxx, lessThan(out2, vec4(0.0)))
-         + max(out2, vec4(0.0));
-    return output_index == 0 ? out0 : output_index == 1 ? out1 : out2;
-}
-vec4 hook() { return ngu_luma_initial_body(1); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_INITIAL_CONSTANTS
-//!SAVE LUMA_INITIAL_2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubici1 output 2
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-vec4 ngu_luma_initial_u(int index) {
-    return texelFetch(LUMA_INITIAL_CONSTANTS, ivec2(index, 0), 0);
-}
-vec4 ngu_luma_initial_fetch(vec2 pos) {
-    ivec2 size = textureSize(HOOKED_raw, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    float value = texelFetch(HOOKED_raw, p, 0).x * HOOKED_mul;
-    return vec4(value, value, value, 1.0);
-}
-vec4 ngu_luma_initial_fetch(vec4 pos) { return ngu_luma_initial_fetch(pos.xy); }
-vec4 ngu_luma_initial_body(int output_index) {
-    vec4 DL32 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_initial_u(31)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_initial_fetch(w1);
-    vec4 w3 = ngu_luma_initial_u(0);
-    vec4 w4 = (w2.xxxx * w3 + ngu_luma_initial_u(27));
-    vec4 e5 = DL32;
-    vec4 w5 = vec4(e5.x, e5.y, e5.z, r2_init.w);
-    vec4 w6 = (ngu_luma_initial_u(31).xyxy * w5.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w7 = ngu_luma_initial_fetch(w6);
-    vec4 w8 = ngu_luma_initial_fetch(w6.zwzw);
-    vec4 w9 = (w7.xxxx * ngu_luma_initial_u(1) + w4);
-    vec4 w10 = (w8.xxxx * ngu_luma_initial_u(2) + w9);
-    vec4 w11 = (ngu_luma_initial_u(31).xyxy * w5.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w12 = ngu_luma_initial_fetch(w11);
-    vec4 w13 = ngu_luma_initial_fetch(w11.zwzw);
-    vec4 w14 = (w12.xxxx * ngu_luma_initial_u(3) + w10);
-    vec4 w15 = ngu_luma_initial_fetch(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w16 = (w15.xxxx * ngu_luma_initial_u(4) + w14);
-    vec4 w17 = (w13.xxxx * ngu_luma_initial_u(5) + w16);
-    vec4 w18 = (ngu_luma_initial_u(31).xyxy * w5.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w19 = ngu_luma_initial_fetch(w18);
-    vec4 w20 = ngu_luma_initial_fetch(w18.zwzw);
-    vec4 w21 = (w19.xxxx * ngu_luma_initial_u(6) + w17);
-    vec4 w22 = (w20.xxxx * ngu_luma_initial_u(7) + w21);
-    vec4 e23 = (ngu_luma_initial_u(31).xxyw + vec4(HOOKED_pos, 0.0, 1.0).xxyw);
-    vec4 w23 = vec4(w2.x, e23.y, e23.z, w2.w);
-    vec4 w24 = ngu_luma_initial_fetch(w23.yzzw);
-    vec4 w25 = (w24.xxxx * ngu_luma_initial_u(8) + w22);
-    vec4 w26 = (w25 * ngu_luma_initial_u(30).xxxx);
-    vec4 w27 = mix(vec4(0.0), w26, lessThan(w25, vec4(0.0)));
-    vec4 w28 = max(w25, DL32.xxxx);
-    vec4 w29 = (w27 + w28);
-    vec4 w30 = ngu_luma_initial_u(9);
-    vec4 w31 = (w23.xxxx * w30 + ngu_luma_initial_u(28));
-    vec4 w32 = ngu_luma_initial_u(18);
-    vec4 w33 = (w23.xxxx * w32 + ngu_luma_initial_u(29));
-    vec4 w34 = (w7.xxxx * ngu_luma_initial_u(19) + w33);
-    vec4 w35 = (w7.xxxx * ngu_luma_initial_u(10) + w31);
-    vec4 w36 = (w8.xxxx * ngu_luma_initial_u(11) + w35);
-    vec4 w37 = (w8.xxxx * ngu_luma_initial_u(20) + w34);
-    vec4 w38 = (w12.xxxx * ngu_luma_initial_u(21) + w37);
-    vec4 w39 = (w12.xxxx * ngu_luma_initial_u(12) + w36);
-    vec4 w40 = (w15.xxxx * ngu_luma_initial_u(13) + w39);
-    vec4 w41 = (w15.xxxx * ngu_luma_initial_u(22) + w38);
-    vec4 w42 = (w13.xxxx * ngu_luma_initial_u(23) + w41);
-    vec4 w43 = (w13.xxxx * ngu_luma_initial_u(14) + w40);
-    vec4 w44 = (w19.xxxx * ngu_luma_initial_u(15) + w43);
-    vec4 w45 = (w19.xxxx * ngu_luma_initial_u(24) + w42);
-    vec4 w46 = (w20.xxxx * ngu_luma_initial_u(25) + w45);
-    vec4 w47 = (w20.xxxx * ngu_luma_initial_u(16) + w44);
-    vec4 w48 = (w24.xxxx * ngu_luma_initial_u(17) + w47);
-    vec4 w49 = (w24.xxxx * ngu_luma_initial_u(26) + w46);
-    vec4 w50 = (w48 * ngu_luma_initial_u(30).xxxx);
-    vec4 w51 = mix(vec4(0.0), w50, lessThan(w48, vec4(0.0)));
-    vec4 w52 = max(w48, DL32.xxxx);
-    vec4 w53 = (w51 + w52);
-    vec4 w54 = (w49 * ngu_luma_initial_u(30).xxxx);
-    vec4 w55 = mix(vec4(0.0), w54, lessThan(w49, vec4(0.0)));
-    vec4 w56 = max(w49, DL32.xxxx);
-    vec4 w57 = (w55 + w56);
-
-    vec4 out0 = w29;
-    vec4 out1 = w2.x * ngu_luma_initial_u(9) + ngu_luma_initial_u(28);
-    out1 = w7.x * ngu_luma_initial_u(10) + out1;
-    out1 = w8.x * ngu_luma_initial_u(11) + out1;
-    out1 = w12.x * ngu_luma_initial_u(12) + out1;
-    out1 = w15.x * ngu_luma_initial_u(13) + out1;
-    out1 = w13.x * ngu_luma_initial_u(14) + out1;
-    out1 = w19.x * ngu_luma_initial_u(15) + out1;
-    out1 = w20.x * ngu_luma_initial_u(16) + out1;
-    out1 = w24.x * ngu_luma_initial_u(17) + out1;
-    out1 = mix(vec4(0.0), out1 * ngu_luma_initial_u(30).xxxx, lessThan(out1, vec4(0.0)))
-         + max(out1, vec4(0.0));
-    vec4 out2 = w2.x * ngu_luma_initial_u(18) + ngu_luma_initial_u(29);
-    out2 = w7.x * ngu_luma_initial_u(19) + out2;
-    out2 = w8.x * ngu_luma_initial_u(20) + out2;
-    out2 = w12.x * ngu_luma_initial_u(21) + out2;
-    out2 = w15.x * ngu_luma_initial_u(22) + out2;
-    out2 = w13.x * ngu_luma_initial_u(23) + out2;
-    out2 = w19.x * ngu_luma_initial_u(24) + out2;
-    out2 = w20.x * ngu_luma_initial_u(25) + out2;
-    out2 = w24.x * ngu_luma_initial_u(26) + out2;
-    out2 = mix(vec4(0.0), out2 * ngu_luma_initial_u(30).xxxx, lessThan(out2, vec4(0.0)))
-         + max(out2, vec4(0.0));
-    return output_index == 0 ? out0 : output_index == 1 ? out1 : out2;
-}
-vec4 hook() { return ngu_luma_initial_body(2); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_INITIAL_0
-//!BIND LUMA_INITIAL_1
-//!BIND LUMA_INITIAL_2
+//!BIND LUMA_FEATURE_A
 //!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER0_0
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 0
+//!SAVE LUMA_FEATURE_B
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 0 packed 3-pane
+//!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 24 8 8 8
 
-#define NN1 LUMA_INITIAL_0_raw
-#define NN2 LUMA_INITIAL_1_raw
-#define NN3 LUMA_INITIAL_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 0), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
+#extension GL_EXT_shader_explicit_arithmetic_types_float16 : enable
+#ifdef GL_EXT_shader_explicit_arithmetic_types_float16
+#    define V4 f16vec4
+#    define M4 f16mat4
+#    define F float16_t
+#else
+#    define V4 vec4
+#    define M4 mat4
+#    define F float
+#endif
 
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
+shared vec4 ngu_luma_layer_constants[333];
+
+vec4 ngu_luma_layer_constant(int row, int index) {
+    return ngu_luma_layer_constants[row * 111 + index];
 }
-vec4 hook() { return ngu_luma_body(); }
+V4 ngu_luma_layer_weight(int index, int row) {
+    return V4(ngu_luma_layer_constant(row, index));
+}
+V4 ngu_luma_layer_fetch(int pane, vec2 position) {
+    const ivec2 logical_size = ivec2(HOOKED_size);
+    const ivec2 logical_pixel = clamp(
+        ivec2(floor(position * vec2(logical_size))),
+        ivec2(0),
+        logical_size - ivec2(1));
+    const ivec2 packed_pixel =
+        ivec2(logical_pixel.x * 3 + pane, logical_pixel.y);
+    return V4(texelFetch(LUMA_FEATURE_A_raw, packed_pixel, 0));
+}
+V4 ngu_luma_layer_group0(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(0, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group1(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(1, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group2(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(2, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_sample_group(vec2 position, int base, int row) {
+    const V4 feature0 = ngu_luma_layer_group0(position, base, row);
+    const V4 feature1 = ngu_luma_layer_group1(position, base + 36, row);
+    const V4 feature2 = ngu_luma_layer_group2(position, base + 72, row);
+    return feature2 + (feature0 + feature1);
+}
+V4 ngu_luma_layer_body(vec2 center, int row) {
+    const vec2 pixel_point = ngu_luma_layer_constant(row, 110).xy;
+    V4 value =
+        ngu_luma_layer_sample_group(center - pixel_point, 0, row) +
+        ngu_luma_layer_weight(108, row);
+    const vec4 positions0 =
+        pixel_point.xyxy * vec4(0.0, -1.0, 1.0, -1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions0.xy, 4, row);
+    value = value + ngu_luma_layer_sample_group(positions0.zw, 8, row);
+    const vec4 positions1 =
+        pixel_point.xyxy * vec4(-1.0, 0.0, 1.0, 0.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions1.xy, 12, row);
+    value = value + ngu_luma_layer_sample_group(center, 16, row);
+    value = value + ngu_luma_layer_sample_group(positions1.zw, 20, row);
+    const vec4 positions2 =
+        pixel_point.xyxy * vec4(-1.0, 1.0, 0.0, 1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions2.xy, 24, row);
+    value = value + ngu_luma_layer_sample_group(positions2.zw, 28, row);
+    value = value +
+        ngu_luma_layer_sample_group(center + pixel_point, 32, row);
+    const F slope = F(ngu_luma_layer_constant(row, 109).x);
+    return max(value, V4(0.0)) + min(value, V4(0.0)) * slope;
+}
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 333u; i += thread_count) {
+        const uint local_row = i / 111u;
+        const uint index = i - local_row * 111u;
+        ngu_luma_layer_constants[i] = texelFetch(
+            LUMA_LAYER_CONSTANTS,
+            ivec2(int(index), int(local_row) + 0),
+            0);
+    }
+    barrier();
+
+    const ivec2 logical_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(logical_pixel, ivec2(HOOKED_size)))) {
+        return;
+    }
+    const vec2 center =
+        (vec2(logical_pixel) + vec2(0.5)) * HOOKED_pt;
+    const V4 result0 = ngu_luma_layer_body(center, 0);
+    const V4 result1 = ngu_luma_layer_body(center, 1);
+    const V4 result2 = ngu_luma_layer_body(center, 2);
+    const ivec2 packed = logical_pixel * ivec2(3, 1);
+    imageStore(out_image, packed + ivec2(0, 0), vec4(result0));
+    imageStore(out_image, packed + ivec2(1, 0), vec4(result1));
+    imageStore(out_image, packed + ivec2(2, 0), vec4(result2));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
-//!BIND LUMA_INITIAL_0
-//!BIND LUMA_INITIAL_1
-//!BIND LUMA_INITIAL_2
+//!BIND LUMA_FEATURE_B
 //!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER0_1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 1
+//!SAVE LUMA_FEATURE_A
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 1 packed 3-pane
+//!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 24 8 8 8
 
-#define NN1 LUMA_INITIAL_0_raw
-#define NN2 LUMA_INITIAL_1_raw
-#define NN3 LUMA_INITIAL_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 1), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
+#extension GL_EXT_shader_explicit_arithmetic_types_float16 : enable
+#ifdef GL_EXT_shader_explicit_arithmetic_types_float16
+#    define V4 f16vec4
+#    define M4 f16mat4
+#    define F float16_t
+#else
+#    define V4 vec4
+#    define M4 mat4
+#    define F float
+#endif
 
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
+shared vec4 ngu_luma_layer_constants[333];
+
+vec4 ngu_luma_layer_constant(int row, int index) {
+    return ngu_luma_layer_constants[row * 111 + index];
 }
-vec4 hook() { return ngu_luma_body(); }
+V4 ngu_luma_layer_weight(int index, int row) {
+    return V4(ngu_luma_layer_constant(row, index));
+}
+V4 ngu_luma_layer_fetch(int pane, vec2 position) {
+    const ivec2 logical_size = ivec2(HOOKED_size);
+    const ivec2 logical_pixel = clamp(
+        ivec2(floor(position * vec2(logical_size))),
+        ivec2(0),
+        logical_size - ivec2(1));
+    const ivec2 packed_pixel =
+        ivec2(logical_pixel.x * 3 + pane, logical_pixel.y);
+    return V4(texelFetch(LUMA_FEATURE_B_raw, packed_pixel, 0));
+}
+V4 ngu_luma_layer_group0(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(0, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group1(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(1, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group2(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(2, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_sample_group(vec2 position, int base, int row) {
+    const V4 feature0 = ngu_luma_layer_group0(position, base, row);
+    const V4 feature1 = ngu_luma_layer_group1(position, base + 36, row);
+    const V4 feature2 = ngu_luma_layer_group2(position, base + 72, row);
+    return feature2 + (feature0 + feature1);
+}
+V4 ngu_luma_layer_body(vec2 center, int row) {
+    const vec2 pixel_point = ngu_luma_layer_constant(row, 110).xy;
+    V4 value =
+        ngu_luma_layer_sample_group(center - pixel_point, 0, row) +
+        ngu_luma_layer_weight(108, row);
+    const vec4 positions0 =
+        pixel_point.xyxy * vec4(0.0, -1.0, 1.0, -1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions0.xy, 4, row);
+    value = value + ngu_luma_layer_sample_group(positions0.zw, 8, row);
+    const vec4 positions1 =
+        pixel_point.xyxy * vec4(-1.0, 0.0, 1.0, 0.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions1.xy, 12, row);
+    value = value + ngu_luma_layer_sample_group(center, 16, row);
+    value = value + ngu_luma_layer_sample_group(positions1.zw, 20, row);
+    const vec4 positions2 =
+        pixel_point.xyxy * vec4(-1.0, 1.0, 0.0, 1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions2.xy, 24, row);
+    value = value + ngu_luma_layer_sample_group(positions2.zw, 28, row);
+    value = value +
+        ngu_luma_layer_sample_group(center + pixel_point, 32, row);
+    const F slope = F(ngu_luma_layer_constant(row, 109).x);
+    return max(value, V4(0.0)) + min(value, V4(0.0)) * slope;
+}
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 333u; i += thread_count) {
+        const uint local_row = i / 111u;
+        const uint index = i - local_row * 111u;
+        ngu_luma_layer_constants[i] = texelFetch(
+            LUMA_LAYER_CONSTANTS,
+            ivec2(int(index), int(local_row) + 3),
+            0);
+    }
+    barrier();
+
+    const ivec2 logical_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(logical_pixel, ivec2(HOOKED_size)))) {
+        return;
+    }
+    const vec2 center =
+        (vec2(logical_pixel) + vec2(0.5)) * HOOKED_pt;
+    const V4 result0 = ngu_luma_layer_body(center, 0);
+    const V4 result1 = ngu_luma_layer_body(center, 1);
+    const V4 result2 = ngu_luma_layer_body(center, 2);
+    const ivec2 packed = logical_pixel * ivec2(3, 1);
+    imageStore(out_image, packed + ivec2(0, 0), vec4(result0));
+    imageStore(out_image, packed + ivec2(1, 0), vec4(result1));
+    imageStore(out_image, packed + ivec2(2, 0), vec4(result2));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
-//!BIND LUMA_INITIAL_0
-//!BIND LUMA_INITIAL_1
-//!BIND LUMA_INITIAL_2
+//!BIND LUMA_FEATURE_A
 //!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER0_2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 2
+//!SAVE LUMA_FEATURE_B
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 2 packed 3-pane
+//!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 24 8 8 8
 
-#define NN1 LUMA_INITIAL_0_raw
-#define NN2 LUMA_INITIAL_1_raw
-#define NN3 LUMA_INITIAL_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 2), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
+#extension GL_EXT_shader_explicit_arithmetic_types_float16 : enable
+#ifdef GL_EXT_shader_explicit_arithmetic_types_float16
+#    define V4 f16vec4
+#    define M4 f16mat4
+#    define F float16_t
+#else
+#    define V4 vec4
+#    define M4 mat4
+#    define F float
+#endif
 
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
+shared vec4 ngu_luma_layer_constants[333];
+
+vec4 ngu_luma_layer_constant(int row, int index) {
+    return ngu_luma_layer_constants[row * 111 + index];
 }
-vec4 hook() { return ngu_luma_body(); }
+V4 ngu_luma_layer_weight(int index, int row) {
+    return V4(ngu_luma_layer_constant(row, index));
+}
+V4 ngu_luma_layer_fetch(int pane, vec2 position) {
+    const ivec2 logical_size = ivec2(HOOKED_size);
+    const ivec2 logical_pixel = clamp(
+        ivec2(floor(position * vec2(logical_size))),
+        ivec2(0),
+        logical_size - ivec2(1));
+    const ivec2 packed_pixel =
+        ivec2(logical_pixel.x * 3 + pane, logical_pixel.y);
+    return V4(texelFetch(LUMA_FEATURE_A_raw, packed_pixel, 0));
+}
+V4 ngu_luma_layer_group0(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(0, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group1(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(1, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group2(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(2, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_sample_group(vec2 position, int base, int row) {
+    const V4 feature0 = ngu_luma_layer_group0(position, base, row);
+    const V4 feature1 = ngu_luma_layer_group1(position, base + 36, row);
+    const V4 feature2 = ngu_luma_layer_group2(position, base + 72, row);
+    return feature2 + (feature0 + feature1);
+}
+V4 ngu_luma_layer_body(vec2 center, int row) {
+    const vec2 pixel_point = ngu_luma_layer_constant(row, 110).xy;
+    V4 value =
+        ngu_luma_layer_sample_group(center - pixel_point, 0, row) +
+        ngu_luma_layer_weight(108, row);
+    const vec4 positions0 =
+        pixel_point.xyxy * vec4(0.0, -1.0, 1.0, -1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions0.xy, 4, row);
+    value = value + ngu_luma_layer_sample_group(positions0.zw, 8, row);
+    const vec4 positions1 =
+        pixel_point.xyxy * vec4(-1.0, 0.0, 1.0, 0.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions1.xy, 12, row);
+    value = value + ngu_luma_layer_sample_group(center, 16, row);
+    value = value + ngu_luma_layer_sample_group(positions1.zw, 20, row);
+    const vec4 positions2 =
+        pixel_point.xyxy * vec4(-1.0, 1.0, 0.0, 1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions2.xy, 24, row);
+    value = value + ngu_luma_layer_sample_group(positions2.zw, 28, row);
+    value = value +
+        ngu_luma_layer_sample_group(center + pixel_point, 32, row);
+    const F slope = F(ngu_luma_layer_constant(row, 109).x);
+    return max(value, V4(0.0)) + min(value, V4(0.0)) * slope;
+}
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 333u; i += thread_count) {
+        const uint local_row = i / 111u;
+        const uint index = i - local_row * 111u;
+        ngu_luma_layer_constants[i] = texelFetch(
+            LUMA_LAYER_CONSTANTS,
+            ivec2(int(index), int(local_row) + 6),
+            0);
+    }
+    barrier();
+
+    const ivec2 logical_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(logical_pixel, ivec2(HOOKED_size)))) {
+        return;
+    }
+    const vec2 center =
+        (vec2(logical_pixel) + vec2(0.5)) * HOOKED_pt;
+    const V4 result0 = ngu_luma_layer_body(center, 0);
+    const V4 result1 = ngu_luma_layer_body(center, 1);
+    const V4 result2 = ngu_luma_layer_body(center, 2);
+    const ivec2 packed = logical_pixel * ivec2(3, 1);
+    imageStore(out_image, packed + ivec2(0, 0), vec4(result0));
+    imageStore(out_image, packed + ivec2(1, 0), vec4(result1));
+    imageStore(out_image, packed + ivec2(2, 0), vec4(result2));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
-//!BIND LUMA_LAYER0_0
-//!BIND LUMA_LAYER0_1
-//!BIND LUMA_LAYER0_2
+//!BIND LUMA_FEATURE_B
 //!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER1_0
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 3
+//!SAVE LUMA_FEATURE_A
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 3 packed 3-pane
+//!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 24 8 8 8
 
-#define NN1 LUMA_LAYER0_0_raw
-#define NN2 LUMA_LAYER0_1_raw
-#define NN3 LUMA_LAYER0_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 3), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
+#extension GL_EXT_shader_explicit_arithmetic_types_float16 : enable
+#ifdef GL_EXT_shader_explicit_arithmetic_types_float16
+#    define V4 f16vec4
+#    define M4 f16mat4
+#    define F float16_t
+#else
+#    define V4 vec4
+#    define M4 mat4
+#    define F float
+#endif
 
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
+shared vec4 ngu_luma_layer_constants[333];
+
+vec4 ngu_luma_layer_constant(int row, int index) {
+    return ngu_luma_layer_constants[row * 111 + index];
 }
-vec4 hook() { return ngu_luma_body(); }
+V4 ngu_luma_layer_weight(int index, int row) {
+    return V4(ngu_luma_layer_constant(row, index));
+}
+V4 ngu_luma_layer_fetch(int pane, vec2 position) {
+    const ivec2 logical_size = ivec2(HOOKED_size);
+    const ivec2 logical_pixel = clamp(
+        ivec2(floor(position * vec2(logical_size))),
+        ivec2(0),
+        logical_size - ivec2(1));
+    const ivec2 packed_pixel =
+        ivec2(logical_pixel.x * 3 + pane, logical_pixel.y);
+    return V4(texelFetch(LUMA_FEATURE_B_raw, packed_pixel, 0));
+}
+V4 ngu_luma_layer_group0(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(0, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group1(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(1, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group2(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(2, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_sample_group(vec2 position, int base, int row) {
+    const V4 feature0 = ngu_luma_layer_group0(position, base, row);
+    const V4 feature1 = ngu_luma_layer_group1(position, base + 36, row);
+    const V4 feature2 = ngu_luma_layer_group2(position, base + 72, row);
+    return feature2 + (feature0 + feature1);
+}
+V4 ngu_luma_layer_body(vec2 center, int row) {
+    const vec2 pixel_point = ngu_luma_layer_constant(row, 110).xy;
+    V4 value =
+        ngu_luma_layer_sample_group(center - pixel_point, 0, row) +
+        ngu_luma_layer_weight(108, row);
+    const vec4 positions0 =
+        pixel_point.xyxy * vec4(0.0, -1.0, 1.0, -1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions0.xy, 4, row);
+    value = value + ngu_luma_layer_sample_group(positions0.zw, 8, row);
+    const vec4 positions1 =
+        pixel_point.xyxy * vec4(-1.0, 0.0, 1.0, 0.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions1.xy, 12, row);
+    value = value + ngu_luma_layer_sample_group(center, 16, row);
+    value = value + ngu_luma_layer_sample_group(positions1.zw, 20, row);
+    const vec4 positions2 =
+        pixel_point.xyxy * vec4(-1.0, 1.0, 0.0, 1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions2.xy, 24, row);
+    value = value + ngu_luma_layer_sample_group(positions2.zw, 28, row);
+    value = value +
+        ngu_luma_layer_sample_group(center + pixel_point, 32, row);
+    const F slope = F(ngu_luma_layer_constant(row, 109).x);
+    return max(value, V4(0.0)) + min(value, V4(0.0)) * slope;
+}
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 333u; i += thread_count) {
+        const uint local_row = i / 111u;
+        const uint index = i - local_row * 111u;
+        ngu_luma_layer_constants[i] = texelFetch(
+            LUMA_LAYER_CONSTANTS,
+            ivec2(int(index), int(local_row) + 9),
+            0);
+    }
+    barrier();
+
+    const ivec2 logical_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(logical_pixel, ivec2(HOOKED_size)))) {
+        return;
+    }
+    const vec2 center =
+        (vec2(logical_pixel) + vec2(0.5)) * HOOKED_pt;
+    const V4 result0 = ngu_luma_layer_body(center, 0);
+    const V4 result1 = ngu_luma_layer_body(center, 1);
+    const V4 result2 = ngu_luma_layer_body(center, 2);
+    const ivec2 packed = logical_pixel * ivec2(3, 1);
+    imageStore(out_image, packed + ivec2(0, 0), vec4(result0));
+    imageStore(out_image, packed + ivec2(1, 0), vec4(result1));
+    imageStore(out_image, packed + ivec2(2, 0), vec4(result2));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
-//!BIND LUMA_LAYER0_0
-//!BIND LUMA_LAYER0_1
-//!BIND LUMA_LAYER0_2
+//!BIND LUMA_FEATURE_A
 //!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER1_1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 4
+//!SAVE LUMA_FEATURE_B
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 4 packed 3-pane
+//!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 24 8 8 8
 
-#define NN1 LUMA_LAYER0_0_raw
-#define NN2 LUMA_LAYER0_1_raw
-#define NN3 LUMA_LAYER0_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 4), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
+#extension GL_EXT_shader_explicit_arithmetic_types_float16 : enable
+#ifdef GL_EXT_shader_explicit_arithmetic_types_float16
+#    define V4 f16vec4
+#    define M4 f16mat4
+#    define F float16_t
+#else
+#    define V4 vec4
+#    define M4 mat4
+#    define F float
+#endif
 
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
+shared vec4 ngu_luma_layer_constants[333];
+
+vec4 ngu_luma_layer_constant(int row, int index) {
+    return ngu_luma_layer_constants[row * 111 + index];
 }
-vec4 hook() { return ngu_luma_body(); }
+V4 ngu_luma_layer_weight(int index, int row) {
+    return V4(ngu_luma_layer_constant(row, index));
+}
+V4 ngu_luma_layer_fetch(int pane, vec2 position) {
+    const ivec2 logical_size = ivec2(HOOKED_size);
+    const ivec2 logical_pixel = clamp(
+        ivec2(floor(position * vec2(logical_size))),
+        ivec2(0),
+        logical_size - ivec2(1));
+    const ivec2 packed_pixel =
+        ivec2(logical_pixel.x * 3 + pane, logical_pixel.y);
+    return V4(texelFetch(LUMA_FEATURE_A_raw, packed_pixel, 0));
+}
+V4 ngu_luma_layer_group0(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(0, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group1(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(1, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_group2(vec2 position, int base, int row) {
+    const V4 feature_sample = ngu_luma_layer_fetch(2, position);
+    V4 value = feature_sample.y * ngu_luma_layer_weight(base + 1, row);
+    value = feature_sample.x * ngu_luma_layer_weight(base, row) + value;
+    value = feature_sample.z * ngu_luma_layer_weight(base + 2, row) + value;
+    value = feature_sample.w * ngu_luma_layer_weight(base + 3, row) + value;
+    return value;
+}
+V4 ngu_luma_layer_sample_group(vec2 position, int base, int row) {
+    const V4 feature0 = ngu_luma_layer_group0(position, base, row);
+    const V4 feature1 = ngu_luma_layer_group1(position, base + 36, row);
+    const V4 feature2 = ngu_luma_layer_group2(position, base + 72, row);
+    return feature2 + (feature0 + feature1);
+}
+V4 ngu_luma_layer_body(vec2 center, int row) {
+    const vec2 pixel_point = ngu_luma_layer_constant(row, 110).xy;
+    V4 value =
+        ngu_luma_layer_sample_group(center - pixel_point, 0, row) +
+        ngu_luma_layer_weight(108, row);
+    const vec4 positions0 =
+        pixel_point.xyxy * vec4(0.0, -1.0, 1.0, -1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions0.xy, 4, row);
+    value = value + ngu_luma_layer_sample_group(positions0.zw, 8, row);
+    const vec4 positions1 =
+        pixel_point.xyxy * vec4(-1.0, 0.0, 1.0, 0.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions1.xy, 12, row);
+    value = value + ngu_luma_layer_sample_group(center, 16, row);
+    value = value + ngu_luma_layer_sample_group(positions1.zw, 20, row);
+    const vec4 positions2 =
+        pixel_point.xyxy * vec4(-1.0, 1.0, 0.0, 1.0) + center.xyxy;
+    value = value + ngu_luma_layer_sample_group(positions2.xy, 24, row);
+    value = value + ngu_luma_layer_sample_group(positions2.zw, 28, row);
+    value = value +
+        ngu_luma_layer_sample_group(center + pixel_point, 32, row);
+    const F slope = F(ngu_luma_layer_constant(row, 109).x);
+    return max(value, V4(0.0)) + min(value, V4(0.0)) * slope;
+}
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 333u; i += thread_count) {
+        const uint local_row = i / 111u;
+        const uint index = i - local_row * 111u;
+        ngu_luma_layer_constants[i] = texelFetch(
+            LUMA_LAYER_CONSTANTS,
+            ivec2(int(index), int(local_row) + 12),
+            0);
+    }
+    barrier();
+
+    const ivec2 logical_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (any(greaterThanEqual(logical_pixel, ivec2(HOOKED_size)))) {
+        return;
+    }
+    const vec2 center =
+        (vec2(logical_pixel) + vec2(0.5)) * HOOKED_pt;
+    const V4 result0 = ngu_luma_layer_body(center, 0);
+    const V4 result1 = ngu_luma_layer_body(center, 1);
+    const V4 result2 = ngu_luma_layer_body(center, 2);
+    const ivec2 packed = logical_pixel * ivec2(3, 1);
+    imageStore(out_image, packed + ivec2(0, 0), vec4(result0));
+    imageStore(out_image, packed + ivec2(1, 0), vec4(result1));
+    imageStore(out_image, packed + ivec2(2, 0), vec4(result2));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
-//!BIND LUMA_LAYER0_0
-//!BIND LUMA_LAYER0_1
-//!BIND LUMA_LAYER0_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER1_2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 5
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER0_0_raw
-#define NN2 LUMA_LAYER0_1_raw
-#define NN3 LUMA_LAYER0_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 5), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER1_0
-//!BIND LUMA_LAYER1_1
-//!BIND LUMA_LAYER1_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER2_0
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 6
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER1_0_raw
-#define NN2 LUMA_LAYER1_1_raw
-#define NN3 LUMA_LAYER1_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 6), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER1_0
-//!BIND LUMA_LAYER1_1
-//!BIND LUMA_LAYER1_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER2_1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 7
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER1_0_raw
-#define NN2 LUMA_LAYER1_1_raw
-#define NN3 LUMA_LAYER1_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 7), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER1_0
-//!BIND LUMA_LAYER1_1
-//!BIND LUMA_LAYER1_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER2_2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 8
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER1_0_raw
-#define NN2 LUMA_LAYER1_1_raw
-#define NN3 LUMA_LAYER1_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 8), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER2_0
-//!BIND LUMA_LAYER2_1
-//!BIND LUMA_LAYER2_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER3_0
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 9
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER2_0_raw
-#define NN2 LUMA_LAYER2_1_raw
-#define NN3 LUMA_LAYER2_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 9), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER2_0
-//!BIND LUMA_LAYER2_1
-//!BIND LUMA_LAYER2_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER3_1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 10
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER2_0_raw
-#define NN2 LUMA_LAYER2_1_raw
-#define NN3 LUMA_LAYER2_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 10), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER2_0
-//!BIND LUMA_LAYER2_1
-//!BIND LUMA_LAYER2_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER3_2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 11
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER2_0_raw
-#define NN2 LUMA_LAYER2_1_raw
-#define NN3 LUMA_LAYER2_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 11), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER3_0
-//!BIND LUMA_LAYER3_1
-//!BIND LUMA_LAYER3_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER4_0
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 12
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER3_0_raw
-#define NN2 LUMA_LAYER3_1_raw
-#define NN3 LUMA_LAYER3_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 12), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER3_0
-//!BIND LUMA_LAYER3_1
-//!BIND LUMA_LAYER3_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER4_1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 13
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER3_0_raw
-#define NN2 LUMA_LAYER3_1_raw
-#define NN3 LUMA_LAYER3_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 13), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER3_0
-//!BIND LUMA_LAYER3_1
-//!BIND LUMA_LAYER3_2
-//!BIND LUMA_LAYER_CONSTANTS
-//!SAVE LUMA_LAYER4_2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubic11 layer 14
-//!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
-//!COMPONENTS 4
-
-#define NN1 LUMA_LAYER3_0_raw
-#define NN2 LUMA_LAYER3_1_raw
-#define NN3 LUMA_LAYER3_2_raw
-vec4 ngu_luma_u(int index) {
-    return texelFetch(LUMA_LAYER_CONSTANTS, ivec2(index, 14), 0);
-}
-vec4 ngu_luma_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
-}
-vec4 ngu_luma_fetch1(vec2 pos) { return ngu_luma_sample(NN1, pos); }
-vec4 ngu_luma_fetch1(vec4 pos) { return ngu_luma_fetch1(pos.xy); }
-vec4 ngu_luma_fetch2(vec2 pos) { return ngu_luma_sample(NN2, pos); }
-vec4 ngu_luma_fetch2(vec4 pos) { return ngu_luma_fetch2(pos.xy); }
-vec4 ngu_luma_fetch3(vec2 pos) { return ngu_luma_sample(NN3, pos); }
-vec4 ngu_luma_fetch3(vec4 pos) { return ngu_luma_fetch3(pos.xy); }
-vec4 ngu_luma_body() {
-
-    vec4 DL111 = vec4(0,-1,1,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = ((-ngu_luma_u(110)) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w1 = vec4(e1.x, e1.y, r0_init.z, r0_init.w);
-    vec4 w2 = ngu_luma_fetch1(w1);
-    vec4 w3 = (w2.yyyy * ngu_luma_u(1));
-    vec4 w4 = (ngu_luma_u(0) * w2.xxxx + w3);
-    vec4 w5 = (ngu_luma_u(2) * w2.zzzz + w4);
-    vec4 w6 = (ngu_luma_u(3) * w2.wwww + w5);
-    vec4 w7 = ngu_luma_fetch2(w1);
-    vec4 w8 = ngu_luma_fetch3(w1);
-    vec4 w9 = (w7.yyyy * ngu_luma_u(37));
-    vec4 w10 = (ngu_luma_u(36) * w7.xxxx + w9);
-    vec4 w11 = (ngu_luma_u(38) * w7.zzzz + w10);
-    vec4 w12 = (ngu_luma_u(39) * w7.wwww + w11);
-    vec4 w13 = (w6 + w12);
-    vec4 w14 = (w8.yyyy * ngu_luma_u(73));
-    vec4 w15 = (ngu_luma_u(72) * w8.xxxx + w14);
-    vec4 w16 = (ngu_luma_u(74) * w8.zzzz + w15);
-    vec4 w17 = (ngu_luma_u(75) * w8.wwww + w16);
-    vec4 w18 = (w17 + w13);
-    vec4 w19 = (w18 + ngu_luma_u(108));
-    vec4 e20 = DL111;
-    vec4 w20 = vec4(e20.x, e20.y, e20.z, w13.w);
-    vec4 w21 = (ngu_luma_u(110).xyxy * w20.xyzy + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w22 = ngu_luma_fetch1(w21);
-    vec4 w23 = (w22.yyyy * ngu_luma_u(5));
-    vec4 w24 = (ngu_luma_u(4) * w22.xxxx + w23);
-    vec4 w25 = (ngu_luma_u(6) * w22.zzzz + w24);
-    vec4 w26 = (ngu_luma_u(7) * w22.wwww + w25);
-    vec4 w27 = ngu_luma_fetch2(w21);
-    vec4 w28 = (w27.yyyy * ngu_luma_u(41));
-    vec4 w29 = (ngu_luma_u(40) * w27.xxxx + w28);
-    vec4 w30 = (ngu_luma_u(42) * w27.zzzz + w29);
-    vec4 w31 = (ngu_luma_u(43) * w27.wwww + w30);
-    vec4 w32 = (w26 + w31);
-    vec4 w33 = ngu_luma_fetch3(w21);
-    vec4 w34 = (w33.yyyy * ngu_luma_u(77));
-    vec4 w35 = (ngu_luma_u(76) * w33.xxxx + w34);
-    vec4 w36 = (ngu_luma_u(78) * w33.zzzz + w35);
-    vec4 w37 = (ngu_luma_u(79) * w33.wwww + w36);
-    vec4 w38 = (w32 + w37);
-    vec4 w39 = (w19 + w38);
-    vec4 w40 = ngu_luma_fetch1(w21.zwzw);
-    vec4 w41 = (w40.yyyy * ngu_luma_u(9));
-    vec4 w42 = (ngu_luma_u(8) * w40.xxxx + w41);
-    vec4 w43 = (ngu_luma_u(10) * w40.zzzz + w42);
-    vec4 w44 = (ngu_luma_u(11) * w40.wwww + w43);
-    vec4 w45 = ngu_luma_fetch2(w21.zwzw);
-    vec4 w46 = ngu_luma_fetch3(w21.zwzw);
-    vec4 w47 = (w45.yyyy * ngu_luma_u(45));
-    vec4 w48 = (ngu_luma_u(44) * w45.xxxx + w47);
-    vec4 w49 = (ngu_luma_u(46) * w45.zzzz + w48);
-    vec4 w50 = (ngu_luma_u(47) * w45.wwww + w49);
-    vec4 w51 = (w44 + w50);
-    vec4 w52 = (w46.yyyy * ngu_luma_u(81));
-    vec4 w53 = (ngu_luma_u(80) * w46.xxxx + w52);
-    vec4 w54 = (ngu_luma_u(82) * w46.zzzz + w53);
-    vec4 w55 = (ngu_luma_u(83) * w46.wwww + w54);
-    vec4 w56 = (w55 + w51);
-    vec4 w57 = (w39 + w56);
-    vec4 w58 = (ngu_luma_u(110).xyxy * w20.yxzx + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w59 = ngu_luma_fetch1(w58);
-    vec4 w60 = (w59.yyyy * ngu_luma_u(13));
-    vec4 w61 = (ngu_luma_u(12) * w59.xxxx + w60);
-    vec4 w62 = (ngu_luma_u(14) * w59.zzzz + w61);
-    vec4 w63 = (ngu_luma_u(15) * w59.wwww + w62);
-    vec4 w64 = ngu_luma_fetch2(w58);
-    vec4 w65 = (w64.yyyy * ngu_luma_u(49));
-    vec4 w66 = (ngu_luma_u(48) * w64.xxxx + w65);
-    vec4 w67 = (ngu_luma_u(50) * w64.zzzz + w66);
-    vec4 w68 = (ngu_luma_u(51) * w64.wwww + w67);
-    vec4 w69 = (w63 + w68);
-    vec4 w70 = ngu_luma_fetch3(w58);
-    vec4 w71 = (w70.yyyy * ngu_luma_u(85));
-    vec4 w72 = (ngu_luma_u(84) * w70.xxxx + w71);
-    vec4 w73 = (ngu_luma_u(86) * w70.zzzz + w72);
-    vec4 w74 = (ngu_luma_u(87) * w70.wwww + w73);
-    vec4 w75 = (w69 + w74);
-    vec4 w76 = (w57 + w75);
-    vec4 w77 = ngu_luma_fetch1(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w78 = (w77.yyyy * ngu_luma_u(17));
-    vec4 w79 = (ngu_luma_u(16) * w77.xxxx + w78);
-    vec4 w80 = (ngu_luma_u(18) * w77.zzzz + w79);
-    vec4 w81 = (ngu_luma_u(19) * w77.wwww + w80);
-    vec4 w82 = ngu_luma_fetch2(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w83 = (w82.yyyy * ngu_luma_u(53));
-    vec4 w84 = (ngu_luma_u(52) * w82.xxxx + w83);
-    vec4 w85 = (ngu_luma_u(54) * w82.zzzz + w84);
-    vec4 w86 = (ngu_luma_u(55) * w82.wwww + w85);
-    vec4 w87 = (w81 + w86);
-    vec4 w88 = ngu_luma_fetch3(vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w89 = (w88.yyyy * ngu_luma_u(89));
-    vec4 w90 = (ngu_luma_u(88) * w88.xxxx + w89);
-    vec4 w91 = (ngu_luma_u(90) * w88.zzzz + w90);
-    vec4 w92 = (ngu_luma_u(91) * w88.wwww + w91);
-    vec4 w93 = (w87 + w92);
-    vec4 w94 = (w76 + w93);
-    vec4 w95 = ngu_luma_fetch1(w58.zwzw);
-    vec4 w96 = (w95.yyyy * ngu_luma_u(21));
-    vec4 w97 = (ngu_luma_u(20) * w95.xxxx + w96);
-    vec4 w98 = (ngu_luma_u(22) * w95.zzzz + w97);
-    vec4 w99 = (ngu_luma_u(23) * w95.wwww + w98);
-    vec4 w100 = ngu_luma_fetch2(w58.zwzw);
-    vec4 w101 = ngu_luma_fetch3(w58.zwzw);
-    vec4 w102 = (w100.yyyy * ngu_luma_u(57));
-    vec4 w103 = (ngu_luma_u(56) * w100.xxxx + w102);
-    vec4 w104 = (ngu_luma_u(58) * w100.zzzz + w103);
-    vec4 w105 = (ngu_luma_u(59) * w100.wwww + w104);
-    vec4 w106 = (w99 + w105);
-    vec4 w107 = (w101.yyyy * ngu_luma_u(93));
-    vec4 w108 = (ngu_luma_u(92) * w101.xxxx + w107);
-    vec4 w109 = (ngu_luma_u(94) * w101.zzzz + w108);
-    vec4 w110 = (ngu_luma_u(95) * w101.wwww + w109);
-    vec4 w111 = (w110 + w106);
-    vec4 w112 = (w94 + w111);
-    vec4 w113 = (ngu_luma_u(110).xyxy * w20.yzxz + vec4(HOOKED_pos, 0.0, 1.0).xyxy);
-    vec4 w114 = ngu_luma_fetch1(w113);
-    vec4 w115 = (w114.yyyy * ngu_luma_u(25));
-    vec4 w116 = (ngu_luma_u(24) * w114.xxxx + w115);
-    vec4 w117 = (ngu_luma_u(26) * w114.zzzz + w116);
-    vec4 w118 = (ngu_luma_u(27) * w114.wwww + w117);
-    vec4 w119 = ngu_luma_fetch2(w113);
-    vec4 w120 = (w119.yyyy * ngu_luma_u(61));
-    vec4 w121 = (ngu_luma_u(60) * w119.xxxx + w120);
-    vec4 w122 = (ngu_luma_u(62) * w119.zzzz + w121);
-    vec4 w123 = (ngu_luma_u(63) * w119.wwww + w122);
-    vec4 w124 = (w118 + w123);
-    vec4 w125 = ngu_luma_fetch3(w113);
-    vec4 w126 = (w125.yyyy * ngu_luma_u(97));
-    vec4 w127 = (ngu_luma_u(96) * w125.xxxx + w126);
-    vec4 w128 = (ngu_luma_u(98) * w125.zzzz + w127);
-    vec4 w129 = (ngu_luma_u(99) * w125.wwww + w128);
-    vec4 w130 = (w124 + w129);
-    vec4 w131 = (w112 + w130);
-    vec4 w132 = ngu_luma_fetch1(w113.zwzw);
-    vec4 w133 = (w132.yyyy * ngu_luma_u(29));
-    vec4 w134 = (ngu_luma_u(28) * w132.xxxx + w133);
-    vec4 w135 = (ngu_luma_u(30) * w132.zzzz + w134);
-    vec4 w136 = (ngu_luma_u(31) * w132.wwww + w135);
-    vec4 w137 = ngu_luma_fetch2(w113.zwzw);
-    vec4 w138 = ngu_luma_fetch3(w113.zwzw);
-    vec4 w139 = (w137.yyyy * ngu_luma_u(65));
-    vec4 w140 = (ngu_luma_u(64) * w137.xxxx + w139);
-    vec4 w141 = (ngu_luma_u(66) * w137.zzzz + w140);
-    vec4 w142 = (ngu_luma_u(67) * w137.wwww + w141);
-    vec4 w143 = (w136 + w142);
-    vec4 w144 = (w138.yyyy * ngu_luma_u(101));
-    vec4 w145 = (ngu_luma_u(100) * w138.xxxx + w144);
-    vec4 w146 = (ngu_luma_u(102) * w138.zzzz + w145);
-    vec4 w147 = (ngu_luma_u(103) * w138.wwww + w146);
-    vec4 w148 = (w147 + w143);
-    vec4 w149 = (w131 + w148);
-    vec4 e150 = (ngu_luma_u(110) + vec4(HOOKED_pos, 0.0, 1.0));
-    vec4 w150 = vec4(e150.x, e150.y, w148.z, w148.w);
-    vec4 w151 = ngu_luma_fetch1(w150);
-    vec4 w152 = (w151.yyyy * ngu_luma_u(33));
-    vec4 w153 = (ngu_luma_u(32) * w151.xxxx + w152);
-    vec4 w154 = (ngu_luma_u(34) * w151.zzzz + w153);
-    vec4 w155 = (ngu_luma_u(35) * w151.wwww + w154);
-    vec4 w156 = ngu_luma_fetch2(w150);
-    vec4 w157 = ngu_luma_fetch3(w150);
-    vec4 w158 = (w156.yyyy * ngu_luma_u(69));
-    vec4 w159 = (ngu_luma_u(68) * w156.xxxx + w158);
-    vec4 w160 = (ngu_luma_u(70) * w156.zzzz + w159);
-    vec4 w161 = (ngu_luma_u(71) * w156.wwww + w160);
-    vec4 w162 = (w155 + w161);
-    vec4 w163 = (w157.yyyy * ngu_luma_u(105));
-    vec4 w164 = (ngu_luma_u(104) * w157.xxxx + w163);
-    vec4 w165 = (ngu_luma_u(106) * w157.zzzz + w164);
-    vec4 w166 = (ngu_luma_u(107) * w157.wwww + w165);
-    vec4 w167 = (w166 + w162);
-    vec4 w168 = (w149 + w167);
-    vec4 w169 = (w168 * ngu_luma_u(109).xxxx);
-    vec4 w170 = mix(vec4(0.0), w169, lessThan(w168, vec4(0.0)));
-    vec4 w171 = max(w168, DL111.xxxx);
-    vec4 w172 = (w170 + w171);
-    return w172;
-}
-vec4 hook() { return ngu_luma_body(); }
-
-//!HOOK LUMA
-//!BIND HOOKED
-//!BIND LUMA_LAYER4_0
-//!BIND LUMA_LAYER4_1
-//!BIND LUMA_LAYER4_2
+//!BIND LUMA_FEATURE_B
 //!BIND LUMA_DENSE_CONSTANTS
 //!SAVE LUMA_DENSE
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubicd11 dense
+//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] dense residual 1922x1082
 //!WIDTH HOOKED.w 2 +
 //!HEIGHT HOOKED.h 2 +
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
+//!COMPUTE 8 8 8 8
 
-#define NN1 LUMA_LAYER4_0_raw
-#define NN2 LUMA_LAYER4_1_raw
-#define NN3 LUMA_LAYER4_2_raw
+shared vec4 ngu_luma_dense_constants[51];
+
 vec4 ngu_luma_dense_u(int index) {
-    return texelFetch(LUMA_DENSE_CONSTANTS, ivec2(index, 0), 0);
+    return ngu_luma_dense_constants[index];
 }
-vec4 ngu_luma_dense_sample(sampler2D texture, vec2 pos) {
-    ivec2 size = textureSize(texture, 0);
-    ivec2 p = clamp(ivec2(floor(pos * vec2(size))), ivec2(0), size - ivec2(1));
-    return texelFetch(texture, p, 0);
+vec4 ngu_luma_dense_sample(int pane, vec2 position) {
+    const ivec2 logical_size = ivec2(HOOKED_size);
+    const ivec2 logical_pixel = clamp(
+        ivec2(floor(position * vec2(logical_size))),
+        ivec2(0),
+        logical_size - ivec2(1));
+    const ivec2 packed_pixel =
+        ivec2(logical_pixel.x * 3 + pane, logical_pixel.y);
+    return texelFetch(LUMA_FEATURE_B_raw, packed_pixel, 0);
 }
-vec4 ngu_luma_dense_fetch1(vec2 pos) { return ngu_luma_dense_sample(NN1, pos); }
-vec4 ngu_luma_dense_fetch1(vec4 pos) { return ngu_luma_dense_fetch1(pos.xy); }
-vec4 ngu_luma_dense_fetch2(vec2 pos) { return ngu_luma_dense_sample(NN2, pos); }
-vec4 ngu_luma_dense_fetch2(vec4 pos) { return ngu_luma_dense_fetch2(pos.xy); }
-vec4 ngu_luma_dense_fetch3(vec2 pos) { return ngu_luma_dense_sample(NN3, pos); }
-vec4 ngu_luma_dense_fetch3(vec4 pos) { return ngu_luma_dense_fetch3(pos.xy); }
-vec4 ngu_luma_dense_body() {
-
+vec4 ngu_luma_dense_fetch1(vec2 position) {
+    return ngu_luma_dense_sample(0, position);
+}
+vec4 ngu_luma_dense_fetch1(vec4 position) {
+    return ngu_luma_dense_fetch1(position.xy);
+}
+vec4 ngu_luma_dense_fetch2(vec2 position) {
+    return ngu_luma_dense_sample(1, position);
+}
+vec4 ngu_luma_dense_fetch2(vec4 position) {
+    return ngu_luma_dense_fetch2(position.xy);
+}
+vec4 ngu_luma_dense_fetch3(vec2 position) {
+    return ngu_luma_dense_sample(2, position);
+}
+vec4 ngu_luma_dense_fetch3(vec4 position) {
+    return ngu_luma_dense_fetch3(position.xy);
+}
+vec4 ngu_luma_dense_body(vec2 compute_pos) {
     vec4 DL51 = vec4(-1,1,0,0);
-    vec4 r0_init = vec4(0,0,0,0);
-    vec4 r1_init = vec4(0,0,0,0);
-    vec4 r2_init = vec4(0,0,0,0);
-    vec4 r3_init = vec4(0,0,0,0);
-    vec4 r4_init = vec4(0,0,0,0);
-    vec4 r5_init = vec4(0,0,0,0);
-    vec4 r6_init = vec4(0,0,0,0);
-    vec4 r7_init = vec4(0,0,0,0);
-    vec4 r8_init = vec4(0,0,0,0);
-    vec4 r9_init = vec4(0,0,0,0);
-    vec4 r10_init = vec4(0,0,0,0);
-    vec4 r11_init = vec4(0,0,0,0);
-    vec4 r12_init = vec4(0,0,0,0);
-    vec4 r13_init = vec4(0,0,0,0);
-    vec4 r14_init = vec4(0,0,0,0);
-    vec4 r15_init = vec4(0,0,0,0);
-    vec4 r16_init = vec4(0,0,0,0);
-    vec4 r17_init = vec4(0,0,0,0);
-    vec4 r18_init = vec4(0,0,0,0);
-    vec4 r19_init = vec4(0,0,0,0);
-    vec4 r20_init = vec4(0,0,0,0);
-    vec4 r21_init = vec4(0,0,0,0);
-    vec4 r22_init = vec4(0,0,0,0);
-    vec4 r23_init = vec4(0,0,0,0);
-    vec4 r24_init = vec4(0,0,0,0);
-    vec4 r25_init = vec4(0,0,0,0);
-    vec4 r26_init = vec4(0,0,0,0);
-    vec4 r27_init = vec4(0,0,0,0);
-    vec4 r28_init = vec4(0,0,0,0);
-    vec4 r29_init = vec4(0,0,0,0);
-    vec4 r30_init = vec4(0,0,0,0);
-    vec4 r31_init = vec4(0,0,0,0);
-    vec4 e1 = DL51;
-    vec4 w1 = vec4(e1.x, e1.y, e1.z, r0_init.w);
-    vec4 e2 = (vec4(HOOKED_pos, 0.0, 1.0).xyzy * ngu_luma_dense_u(50).xyzy + w1.xxxx);
-    vec4 w2 = vec4(e2.x, w1.y, w1.z, e2.w);
-    vec4 e3 = (w2.xwzw * ngu_luma_dense_u(49));
-    vec4 w3 = vec4(e3.x, e3.y, r1_init.z, r1_init.w);
-    vec4 e4 = (w2 * ngu_luma_dense_u(49).xyzy + ngu_luma_dense_u(49).xyzy);
-    vec4 w4 = vec4(e4.x, w2.y, w2.z, e4.w);
-    vec4 w5 = ngu_luma_dense_fetch1(w3);
-    vec4 e6 = vec4(dot(w5, ngu_luma_dense_u(10)));
-    vec4 w6 = vec4(w3.x, w3.y, e6.z, w3.w);
-    vec4 w7 = ngu_luma_dense_fetch2(w6);
-    vec4 e8 = vec4(dot(w7, ngu_luma_dense_u(26)));
-    vec4 w8 = vec4(w6.x, w6.y, w6.z, e8.w);
-    vec4 e9 = (w8.wwww + w8.zzzz);
-    vec4 w9 = vec4(w8.x, w8.y, e9.z, w8.w);
-    vec4 w10 = ngu_luma_dense_fetch3(w9);
-    vec4 w11 = (ngu_luma_dense_u(49).xyxy * w4.yzzy + w9.xyxy);
-    vec4 e12 = vec4(dot(w10, ngu_luma_dense_u(42)));
-    vec4 w12 = vec4(w4.x, e12.y, w4.z, w4.w);
-    vec4 e13 = (w12.yyyy + w9.zzzz);
-    vec4 w13 = vec4(w12.x, e13.y, w12.z, w12.w);
-    vec4 w14 = ngu_luma_dense_fetch1(w11);
-    vec4 e15 = vec4(dot(w14, ngu_luma_dense_u(8)));
-    vec4 w15 = vec4(w13.x, w13.y, e15.z, w13.w);
-    vec4 e16 = (w15.zzzz + w15.yyyy);
-    vec4 w16 = vec4(w15.x, e16.y, w15.z, w15.w);
-    vec4 w17 = ngu_luma_dense_fetch2(w11);
-    vec4 e18 = vec4(dot(w17, ngu_luma_dense_u(24)));
-    vec4 w18 = vec4(w16.x, w16.y, e18.z, w16.w);
-    vec4 e19 = (w18.zzzz + w18.yyyy);
-    vec4 w19 = vec4(w18.x, e19.y, w18.z, w18.w);
-    vec4 w20 = ngu_luma_dense_fetch3(w11);
-    vec4 e21 = vec4(dot(w20, ngu_luma_dense_u(40)));
-    vec4 w21 = vec4(w19.x, w19.y, e21.z, w19.w);
-    vec4 e22 = (w21.zzzz + w21.yyyy);
-    vec4 w22 = vec4(w21.x, e22.y, w21.z, w21.w);
-    vec4 w23 = ngu_luma_dense_fetch1(w11.zwzw);
-    vec4 e24 = vec4(dot(w23, ngu_luma_dense_u(2)));
-    vec4 w24 = vec4(w22.x, w22.y, e24.z, w22.w);
-    vec4 e25 = (w24.zzzz + w24.yyyy);
-    vec4 w25 = vec4(w24.x, e25.y, w24.z, w24.w);
-    vec4 w26 = ngu_luma_dense_fetch2(w11.zwzw);
-    vec4 w27 = ngu_luma_dense_fetch3(w11.zwzw);
-    vec4 e28 = vec4(dot(w26, ngu_luma_dense_u(18)));
-    vec4 w28 = vec4(w25.x, w25.y, e28.z, w25.w);
-    vec4 e29 = (w28.zzzz + w28.yyyy);
-    vec4 w29 = vec4(w28.x, e29.y, w28.z, w28.w);
-    vec4 e30 = vec4(dot(w27, ngu_luma_dense_u(34)));
-    vec4 w30 = vec4(w29.x, w29.y, e30.z, w29.w);
-    vec4 e31 = (w30.zzzz + w30.yyyy);
-    vec4 w31 = vec4(w30.x, e31.y, w30.z, w30.w);
-    vec4 w32 = ngu_luma_dense_fetch1(w31.xwzw);
-    vec4 e33 = vec4(dot(w32, ngu_luma_dense_u(0)));
-    vec4 w33 = vec4(w31.x, w31.y, e33.z, w31.w);
-    vec4 e34 = (w33.zzzz + w33.yyyy);
-    vec4 w34 = vec4(w33.x, e34.y, w33.z, w33.w);
-    vec4 w35 = ngu_luma_dense_fetch2(w34.xwzw);
-    vec4 w36 = ngu_luma_dense_fetch3(w34.xwzw);
-    vec4 e37 = vec4(dot(w35, ngu_luma_dense_u(16)));
-    vec4 w37 = vec4(e37.x, w34.y, w34.z, w34.w);
-    vec4 e38 = (w37.xxxx + w37.yyyy);
-    vec4 w38 = vec4(e38.x, w37.y, w37.z, w37.w);
-    vec4 e39 = vec4(dot(w36, ngu_luma_dense_u(32)));
-    vec4 w39 = vec4(w38.x, e39.y, w38.z, w38.w);
-    vec4 e40 = (w39.yyyy + w39.xxxx);
-    vec4 w40 = vec4(e40.x, w39.y, w39.z, w39.w);
-    vec4 e41 = vec4(dot(w14, ngu_luma_dense_u(9)));
-    vec4 w41 = vec4(e41.x, r13_init.y, r13_init.z, r13_init.w);
-    vec4 e42 = vec4(dot(w5, ngu_luma_dense_u(11)));
-    vec4 w42 = vec4(w41.x, e42.y, w41.z, w41.w);
-    vec4 e43 = vec4(dot(w7, ngu_luma_dense_u(27)));
-    vec4 w43 = vec4(w42.x, w42.y, e43.z, w42.w);
-    vec4 e44 = (w43.zzzz + w43.yyyy);
-    vec4 w44 = vec4(w43.x, e44.y, w43.z, w43.w);
-    vec4 e45 = vec4(dot(w10, ngu_luma_dense_u(43)));
-    vec4 w45 = vec4(w44.x, w44.y, e45.z, w44.w);
-    vec4 e46 = (w45.zzzz + w45.yyyy);
-    vec4 w46 = vec4(w45.x, e46.y, w45.z, w45.w);
-    vec4 e47 = (w46.xxxx + w46.yyyy);
-    vec4 w47 = vec4(e47.x, w46.y, w46.z, w46.w);
-    vec4 e48 = vec4(dot(w17, ngu_luma_dense_u(25)));
-    vec4 w48 = vec4(w47.x, e48.y, w47.z, w47.w);
-    vec4 e49 = (w48.yyyy + w48.xxxx);
-    vec4 w49 = vec4(e49.x, w48.y, w48.z, w48.w);
-    vec4 e50 = vec4(dot(w20, ngu_luma_dense_u(41)));
-    vec4 w50 = vec4(w49.x, e50.y, w49.z, w49.w);
-    vec4 e51 = (w50.yyyy + w50.xxxx);
-    vec4 w51 = vec4(e51.x, w50.y, w50.z, w50.w);
-    vec4 e52 = vec4(dot(w23, ngu_luma_dense_u(3)));
-    vec4 w52 = vec4(w51.x, e52.y, w51.z, w51.w);
-    vec4 e53 = (w52.yyyy + w52.xxxx);
-    vec4 w53 = vec4(e53.x, w52.y, w52.z, w52.w);
-    vec4 e54 = vec4(dot(w26, ngu_luma_dense_u(19)));
-    vec4 w54 = vec4(w53.x, e54.y, w53.z, w53.w);
-    vec4 e55 = (w54.yyyy + w54.xxxx);
-    vec4 w55 = vec4(e55.x, w54.y, w54.z, w54.w);
-    vec4 e56 = vec4(dot(w27, ngu_luma_dense_u(35)));
-    vec4 w56 = vec4(w55.x, e56.y, w55.z, w55.w);
-    vec4 e57 = (w56.yyyy + w56.xxxx);
-    vec4 w57 = vec4(e57.x, w56.y, w56.z, w56.w);
-    vec4 e58 = vec4(dot(w32, ngu_luma_dense_u(1)));
-    vec4 w58 = vec4(w57.x, e58.y, w57.z, w57.w);
-    vec4 e59 = (w58.yyyy + w58.xxxx);
-    vec4 w59 = vec4(e59.x, w58.y, w58.z, w58.w);
-    vec4 e60 = vec4(dot(w35, ngu_luma_dense_u(17)));
-    vec4 w60 = vec4(w59.x, e60.y, w59.z, w59.w);
-    vec4 e61 = (w60.yyyy + w60.xxxx);
-    vec4 w61 = vec4(e61.x, w60.y, w60.z, w60.w);
-    vec4 e62 = vec4(dot(w36, ngu_luma_dense_u(33)));
-    vec4 w62 = vec4(w61.x, e62.y, w61.z, w61.w);
-    vec4 e63 = (w62.yyyy + w62.xxxx);
-    vec4 w63 = vec4(w40.x, e63.y, w40.z, w40.w);
-    vec4 e64 = vec4(dot(w5, ngu_luma_dense_u(14)));
-    vec4 w64 = vec4(e64.x, w62.y, w62.z, w62.w);
-    vec4 e65 = vec4(dot(w5, ngu_luma_dense_u(15)));
-    vec4 w65 = vec4(e65.x, w5.y, w5.z, w5.w);
-    vec4 e66 = vec4(dot(w7, ngu_luma_dense_u(30)));
-    vec4 w66 = vec4(w65.x, e66.y, w65.z, w65.w);
-    vec4 e67 = vec4(dot(w7, ngu_luma_dense_u(31)));
-    vec4 w67 = vec4(w66.x, w66.y, e67.z, w66.w);
-    vec4 e68 = (w67.zzzz + w67.xxxx);
-    vec4 w68 = vec4(e68.x, w67.y, w67.z, w67.w);
-    vec4 e69 = (w68.yyyy + w64.xxxx);
-    vec4 w69 = vec4(w68.x, e69.y, w68.z, w68.w);
-    vec4 e70 = vec4(dot(w10, ngu_luma_dense_u(46)));
-    vec4 w70 = vec4(w69.x, w69.y, e70.z, w69.w);
-    vec4 e71 = vec4(dot(w10, ngu_luma_dense_u(47)));
-    vec4 w71 = vec4(w70.x, w70.y, w70.z, e71.w);
-    vec4 e72 = (w71.wzzw + w71);
-    vec4 w72 = vec4(e72.x, e72.y, w71.z, w71.w);
-    vec4 e73 = vec4(dot(w14, ngu_luma_dense_u(12)));
-    vec4 w73 = vec4(w72.x, w72.y, e73.z, w72.w);
-    vec4 e74 = vec4(dot(w14, ngu_luma_dense_u(13)));
-    vec4 w74 = vec4(e74.x, w14.y, w14.z, w14.w);
-    vec4 e75 = (w74.xxxx + w73.xxxx);
-    vec4 w75 = vec4(e75.x, w74.y, w74.z, w74.w);
-    vec4 e76 = (w73.zzzz + w73.yyyy);
-    vec4 w76 = vec4(w75.x, e76.y, w75.z, w75.w);
-    vec4 e77 = vec4(dot(w17, ngu_luma_dense_u(28)));
-    vec4 w77 = vec4(w76.x, w76.y, e77.z, w76.w);
-    vec4 e78 = vec4(dot(w17, ngu_luma_dense_u(29)));
-    vec4 w78 = vec4(w77.x, w77.y, w77.z, e78.w);
-    vec4 e79 = (w78.wzzw + w78);
-    vec4 w79 = vec4(e79.x, e79.y, w78.z, w78.w);
-    vec4 e80 = vec4(dot(w20, ngu_luma_dense_u(44)));
-    vec4 w80 = vec4(w79.x, w79.y, e80.z, w79.w);
-    vec4 e81 = vec4(dot(w20, ngu_luma_dense_u(45)));
-    vec4 w81 = vec4(w80.x, w80.y, w80.z, e81.w);
-    vec4 e82 = (w81.wzzw + w81);
-    vec4 w82 = vec4(e82.x, e82.y, w81.z, w81.w);
-    vec4 e83 = vec4(dot(w23, ngu_luma_dense_u(6)));
-    vec4 w83 = vec4(w82.x, w82.y, e83.z, w82.w);
-    vec4 e84 = vec4(dot(w23, ngu_luma_dense_u(7)));
-    vec4 w84 = vec4(w83.x, w83.y, w83.z, e84.w);
-    vec4 e85 = (w84.wzzw + w84);
-    vec4 w85 = vec4(e85.x, e85.y, w84.z, w84.w);
-    vec4 e86 = vec4(dot(w26, ngu_luma_dense_u(22)));
-    vec4 w86 = vec4(w85.x, w85.y, e86.z, w85.w);
-    vec4 e87 = vec4(dot(w26, ngu_luma_dense_u(23)));
-    vec4 w87 = vec4(w86.x, w86.y, w86.z, e87.w);
-    vec4 e88 = (w87.wzzw + w87);
-    vec4 w88 = vec4(e88.x, e88.y, w87.z, w87.w);
-    vec4 e89 = vec4(dot(w27, ngu_luma_dense_u(38)));
-    vec4 w89 = vec4(w88.x, w88.y, e89.z, w88.w);
-    vec4 e90 = vec4(dot(w27, ngu_luma_dense_u(39)));
-    vec4 w90 = vec4(w89.x, w89.y, w89.z, e90.w);
-    vec4 e91 = (w90.wzzw + w90);
-    vec4 w91 = vec4(e91.x, e91.y, w90.z, w90.w);
-    vec4 e92 = vec4(dot(w32, ngu_luma_dense_u(4)));
-    vec4 w92 = vec4(w91.x, w91.y, e92.z, w91.w);
-    vec4 e93 = vec4(dot(w32, ngu_luma_dense_u(5)));
-    vec4 w93 = vec4(w92.x, w92.y, w92.z, e93.w);
-    vec4 e94 = (w93.wzzw + w93);
-    vec4 w94 = vec4(e94.x, e94.y, w93.z, w93.w);
-    vec4 e95 = vec4(dot(w35, ngu_luma_dense_u(20)));
-    vec4 w95 = vec4(w94.x, w94.y, e95.z, w94.w);
-    vec4 e96 = vec4(dot(w35, ngu_luma_dense_u(21)));
-    vec4 w96 = vec4(w95.x, w95.y, w95.z, e96.w);
-    vec4 e97 = (w96.wzzw + w96);
-    vec4 w97 = vec4(e97.x, e97.y, w96.z, w96.w);
-    vec4 e98 = vec4(dot(w36, ngu_luma_dense_u(36)));
-    vec4 w98 = vec4(w97.x, w97.y, e98.z, w97.w);
-    vec4 e99 = vec4(dot(w36, ngu_luma_dense_u(37)));
-    vec4 w99 = vec4(w98.x, w98.y, w98.z, e99.w);
-    vec4 e100 = (w99 + w99.xyyx);
-    vec4 w100 = vec4(w63.x, w63.y, e100.z, e100.w);
-    vec4 w101 = (w100 + ngu_luma_dense_u(48).xxxx);
-    return w101;
+        vec4 r0_init = vec4(0,0,0,0);
+        vec4 r1_init = vec4(0,0,0,0);
+        vec4 r2_init = vec4(0,0,0,0);
+        vec4 r3_init = vec4(0,0,0,0);
+        vec4 r4_init = vec4(0,0,0,0);
+        vec4 r5_init = vec4(0,0,0,0);
+        vec4 r6_init = vec4(0,0,0,0);
+        vec4 r7_init = vec4(0,0,0,0);
+        vec4 r8_init = vec4(0,0,0,0);
+        vec4 r9_init = vec4(0,0,0,0);
+        vec4 r10_init = vec4(0,0,0,0);
+        vec4 r11_init = vec4(0,0,0,0);
+        vec4 r12_init = vec4(0,0,0,0);
+        vec4 r13_init = vec4(0,0,0,0);
+        vec4 r14_init = vec4(0,0,0,0);
+        vec4 r15_init = vec4(0,0,0,0);
+        vec4 r16_init = vec4(0,0,0,0);
+        vec4 r17_init = vec4(0,0,0,0);
+        vec4 r18_init = vec4(0,0,0,0);
+        vec4 r19_init = vec4(0,0,0,0);
+        vec4 r20_init = vec4(0,0,0,0);
+        vec4 r21_init = vec4(0,0,0,0);
+        vec4 r22_init = vec4(0,0,0,0);
+        vec4 r23_init = vec4(0,0,0,0);
+        vec4 r24_init = vec4(0,0,0,0);
+        vec4 r25_init = vec4(0,0,0,0);
+        vec4 r26_init = vec4(0,0,0,0);
+        vec4 r27_init = vec4(0,0,0,0);
+        vec4 r28_init = vec4(0,0,0,0);
+        vec4 r29_init = vec4(0,0,0,0);
+        vec4 r30_init = vec4(0,0,0,0);
+        vec4 r31_init = vec4(0,0,0,0);
+        vec4 e1 = DL51;
+        vec4 w1 = vec4(e1.x, e1.y, e1.z, r0_init.w);
+        vec4 e2 = (vec4(compute_pos, 0.0, 1.0).xyzy * ngu_luma_dense_u(50).xyzy + w1.xxxx);
+        vec4 w2 = vec4(e2.x, w1.y, w1.z, e2.w);
+        vec4 e3 = (w2.xwzw * ngu_luma_dense_u(49));
+        vec4 w3 = vec4(e3.x, e3.y, r1_init.z, r1_init.w);
+        vec4 e4 = (w2 * ngu_luma_dense_u(49).xyzy + ngu_luma_dense_u(49).xyzy);
+        vec4 w4 = vec4(e4.x, w2.y, w2.z, e4.w);
+        vec4 w5 = ngu_luma_dense_fetch1(w3);
+        vec4 e6 = vec4(dot(w5, ngu_luma_dense_u(10)));
+        vec4 w6 = vec4(w3.x, w3.y, e6.z, w3.w);
+        vec4 w7 = ngu_luma_dense_fetch2(w6);
+        vec4 e8 = vec4(dot(w7, ngu_luma_dense_u(26)));
+        vec4 w8 = vec4(w6.x, w6.y, w6.z, e8.w);
+        vec4 e9 = (w8.wwww + w8.zzzz);
+        vec4 w9 = vec4(w8.x, w8.y, e9.z, w8.w);
+        vec4 w10 = ngu_luma_dense_fetch3(w9);
+        vec4 w11 = (ngu_luma_dense_u(49).xyxy * w4.yzzy + w9.xyxy);
+        vec4 e12 = vec4(dot(w10, ngu_luma_dense_u(42)));
+        vec4 w12 = vec4(w4.x, e12.y, w4.z, w4.w);
+        vec4 e13 = (w12.yyyy + w9.zzzz);
+        vec4 w13 = vec4(w12.x, e13.y, w12.z, w12.w);
+        vec4 w14 = ngu_luma_dense_fetch1(w11);
+        vec4 e15 = vec4(dot(w14, ngu_luma_dense_u(8)));
+        vec4 w15 = vec4(w13.x, w13.y, e15.z, w13.w);
+        vec4 e16 = (w15.zzzz + w15.yyyy);
+        vec4 w16 = vec4(w15.x, e16.y, w15.z, w15.w);
+        vec4 w17 = ngu_luma_dense_fetch2(w11);
+        vec4 e18 = vec4(dot(w17, ngu_luma_dense_u(24)));
+        vec4 w18 = vec4(w16.x, w16.y, e18.z, w16.w);
+        vec4 e19 = (w18.zzzz + w18.yyyy);
+        vec4 w19 = vec4(w18.x, e19.y, w18.z, w18.w);
+        vec4 w20 = ngu_luma_dense_fetch3(w11);
+        vec4 e21 = vec4(dot(w20, ngu_luma_dense_u(40)));
+        vec4 w21 = vec4(w19.x, w19.y, e21.z, w19.w);
+        vec4 e22 = (w21.zzzz + w21.yyyy);
+        vec4 w22 = vec4(w21.x, e22.y, w21.z, w21.w);
+        vec4 w23 = ngu_luma_dense_fetch1(w11.zwzw);
+        vec4 e24 = vec4(dot(w23, ngu_luma_dense_u(2)));
+        vec4 w24 = vec4(w22.x, w22.y, e24.z, w22.w);
+        vec4 e25 = (w24.zzzz + w24.yyyy);
+        vec4 w25 = vec4(w24.x, e25.y, w24.z, w24.w);
+        vec4 w26 = ngu_luma_dense_fetch2(w11.zwzw);
+        vec4 w27 = ngu_luma_dense_fetch3(w11.zwzw);
+        vec4 e28 = vec4(dot(w26, ngu_luma_dense_u(18)));
+        vec4 w28 = vec4(w25.x, w25.y, e28.z, w25.w);
+        vec4 e29 = (w28.zzzz + w28.yyyy);
+        vec4 w29 = vec4(w28.x, e29.y, w28.z, w28.w);
+        vec4 e30 = vec4(dot(w27, ngu_luma_dense_u(34)));
+        vec4 w30 = vec4(w29.x, w29.y, e30.z, w29.w);
+        vec4 e31 = (w30.zzzz + w30.yyyy);
+        vec4 w31 = vec4(w30.x, e31.y, w30.z, w30.w);
+        vec4 w32 = ngu_luma_dense_fetch1(w31.xwzw);
+        vec4 e33 = vec4(dot(w32, ngu_luma_dense_u(0)));
+        vec4 w33 = vec4(w31.x, w31.y, e33.z, w31.w);
+        vec4 e34 = (w33.zzzz + w33.yyyy);
+        vec4 w34 = vec4(w33.x, e34.y, w33.z, w33.w);
+        vec4 w35 = ngu_luma_dense_fetch2(w34.xwzw);
+        vec4 w36 = ngu_luma_dense_fetch3(w34.xwzw);
+        vec4 e37 = vec4(dot(w35, ngu_luma_dense_u(16)));
+        vec4 w37 = vec4(e37.x, w34.y, w34.z, w34.w);
+        vec4 e38 = (w37.xxxx + w37.yyyy);
+        vec4 w38 = vec4(e38.x, w37.y, w37.z, w37.w);
+        vec4 e39 = vec4(dot(w36, ngu_luma_dense_u(32)));
+        vec4 w39 = vec4(w38.x, e39.y, w38.z, w38.w);
+        vec4 e40 = (w39.yyyy + w39.xxxx);
+        vec4 w40 = vec4(e40.x, w39.y, w39.z, w39.w);
+        vec4 e41 = vec4(dot(w14, ngu_luma_dense_u(9)));
+        vec4 w41 = vec4(e41.x, r13_init.y, r13_init.z, r13_init.w);
+        vec4 e42 = vec4(dot(w5, ngu_luma_dense_u(11)));
+        vec4 w42 = vec4(w41.x, e42.y, w41.z, w41.w);
+        vec4 e43 = vec4(dot(w7, ngu_luma_dense_u(27)));
+        vec4 w43 = vec4(w42.x, w42.y, e43.z, w42.w);
+        vec4 e44 = (w43.zzzz + w43.yyyy);
+        vec4 w44 = vec4(w43.x, e44.y, w43.z, w43.w);
+        vec4 e45 = vec4(dot(w10, ngu_luma_dense_u(43)));
+        vec4 w45 = vec4(w44.x, w44.y, e45.z, w44.w);
+        vec4 e46 = (w45.zzzz + w45.yyyy);
+        vec4 w46 = vec4(w45.x, e46.y, w45.z, w45.w);
+        vec4 e47 = (w46.xxxx + w46.yyyy);
+        vec4 w47 = vec4(e47.x, w46.y, w46.z, w46.w);
+        vec4 e48 = vec4(dot(w17, ngu_luma_dense_u(25)));
+        vec4 w48 = vec4(w47.x, e48.y, w47.z, w47.w);
+        vec4 e49 = (w48.yyyy + w48.xxxx);
+        vec4 w49 = vec4(e49.x, w48.y, w48.z, w48.w);
+        vec4 e50 = vec4(dot(w20, ngu_luma_dense_u(41)));
+        vec4 w50 = vec4(w49.x, e50.y, w49.z, w49.w);
+        vec4 e51 = (w50.yyyy + w50.xxxx);
+        vec4 w51 = vec4(e51.x, w50.y, w50.z, w50.w);
+        vec4 e52 = vec4(dot(w23, ngu_luma_dense_u(3)));
+        vec4 w52 = vec4(w51.x, e52.y, w51.z, w51.w);
+        vec4 e53 = (w52.yyyy + w52.xxxx);
+        vec4 w53 = vec4(e53.x, w52.y, w52.z, w52.w);
+        vec4 e54 = vec4(dot(w26, ngu_luma_dense_u(19)));
+        vec4 w54 = vec4(w53.x, e54.y, w53.z, w53.w);
+        vec4 e55 = (w54.yyyy + w54.xxxx);
+        vec4 w55 = vec4(e55.x, w54.y, w54.z, w54.w);
+        vec4 e56 = vec4(dot(w27, ngu_luma_dense_u(35)));
+        vec4 w56 = vec4(w55.x, e56.y, w55.z, w55.w);
+        vec4 e57 = (w56.yyyy + w56.xxxx);
+        vec4 w57 = vec4(e57.x, w56.y, w56.z, w56.w);
+        vec4 e58 = vec4(dot(w32, ngu_luma_dense_u(1)));
+        vec4 w58 = vec4(w57.x, e58.y, w57.z, w57.w);
+        vec4 e59 = (w58.yyyy + w58.xxxx);
+        vec4 w59 = vec4(e59.x, w58.y, w58.z, w58.w);
+        vec4 e60 = vec4(dot(w35, ngu_luma_dense_u(17)));
+        vec4 w60 = vec4(w59.x, e60.y, w59.z, w59.w);
+        vec4 e61 = (w60.yyyy + w60.xxxx);
+        vec4 w61 = vec4(e61.x, w60.y, w60.z, w60.w);
+        vec4 e62 = vec4(dot(w36, ngu_luma_dense_u(33)));
+        vec4 w62 = vec4(w61.x, e62.y, w61.z, w61.w);
+        vec4 e63 = (w62.yyyy + w62.xxxx);
+        vec4 w63 = vec4(w40.x, e63.y, w40.z, w40.w);
+        vec4 e64 = vec4(dot(w5, ngu_luma_dense_u(14)));
+        vec4 w64 = vec4(e64.x, w62.y, w62.z, w62.w);
+        vec4 e65 = vec4(dot(w5, ngu_luma_dense_u(15)));
+        vec4 w65 = vec4(e65.x, w5.y, w5.z, w5.w);
+        vec4 e66 = vec4(dot(w7, ngu_luma_dense_u(30)));
+        vec4 w66 = vec4(w65.x, e66.y, w65.z, w65.w);
+        vec4 e67 = vec4(dot(w7, ngu_luma_dense_u(31)));
+        vec4 w67 = vec4(w66.x, w66.y, e67.z, w66.w);
+        vec4 e68 = (w67.zzzz + w67.xxxx);
+        vec4 w68 = vec4(e68.x, w67.y, w67.z, w67.w);
+        vec4 e69 = (w68.yyyy + w64.xxxx);
+        vec4 w69 = vec4(w68.x, e69.y, w68.z, w68.w);
+        vec4 e70 = vec4(dot(w10, ngu_luma_dense_u(46)));
+        vec4 w70 = vec4(w69.x, w69.y, e70.z, w69.w);
+        vec4 e71 = vec4(dot(w10, ngu_luma_dense_u(47)));
+        vec4 w71 = vec4(w70.x, w70.y, w70.z, e71.w);
+        vec4 e72 = (w71.wzzw + w71);
+        vec4 w72 = vec4(e72.x, e72.y, w71.z, w71.w);
+        vec4 e73 = vec4(dot(w14, ngu_luma_dense_u(12)));
+        vec4 w73 = vec4(w72.x, w72.y, e73.z, w72.w);
+        vec4 e74 = vec4(dot(w14, ngu_luma_dense_u(13)));
+        vec4 w74 = vec4(e74.x, w14.y, w14.z, w14.w);
+        vec4 e75 = (w74.xxxx + w73.xxxx);
+        vec4 w75 = vec4(e75.x, w74.y, w74.z, w74.w);
+        vec4 e76 = (w73.zzzz + w73.yyyy);
+        vec4 w76 = vec4(w75.x, e76.y, w75.z, w75.w);
+        vec4 e77 = vec4(dot(w17, ngu_luma_dense_u(28)));
+        vec4 w77 = vec4(w76.x, w76.y, e77.z, w76.w);
+        vec4 e78 = vec4(dot(w17, ngu_luma_dense_u(29)));
+        vec4 w78 = vec4(w77.x, w77.y, w77.z, e78.w);
+        vec4 e79 = (w78.wzzw + w78);
+        vec4 w79 = vec4(e79.x, e79.y, w78.z, w78.w);
+        vec4 e80 = vec4(dot(w20, ngu_luma_dense_u(44)));
+        vec4 w80 = vec4(w79.x, w79.y, e80.z, w79.w);
+        vec4 e81 = vec4(dot(w20, ngu_luma_dense_u(45)));
+        vec4 w81 = vec4(w80.x, w80.y, w80.z, e81.w);
+        vec4 e82 = (w81.wzzw + w81);
+        vec4 w82 = vec4(e82.x, e82.y, w81.z, w81.w);
+        vec4 e83 = vec4(dot(w23, ngu_luma_dense_u(6)));
+        vec4 w83 = vec4(w82.x, w82.y, e83.z, w82.w);
+        vec4 e84 = vec4(dot(w23, ngu_luma_dense_u(7)));
+        vec4 w84 = vec4(w83.x, w83.y, w83.z, e84.w);
+        vec4 e85 = (w84.wzzw + w84);
+        vec4 w85 = vec4(e85.x, e85.y, w84.z, w84.w);
+        vec4 e86 = vec4(dot(w26, ngu_luma_dense_u(22)));
+        vec4 w86 = vec4(w85.x, w85.y, e86.z, w85.w);
+        vec4 e87 = vec4(dot(w26, ngu_luma_dense_u(23)));
+        vec4 w87 = vec4(w86.x, w86.y, w86.z, e87.w);
+        vec4 e88 = (w87.wzzw + w87);
+        vec4 w88 = vec4(e88.x, e88.y, w87.z, w87.w);
+        vec4 e89 = vec4(dot(w27, ngu_luma_dense_u(38)));
+        vec4 w89 = vec4(w88.x, w88.y, e89.z, w88.w);
+        vec4 e90 = vec4(dot(w27, ngu_luma_dense_u(39)));
+        vec4 w90 = vec4(w89.x, w89.y, w89.z, e90.w);
+        vec4 e91 = (w90.wzzw + w90);
+        vec4 w91 = vec4(e91.x, e91.y, w90.z, w90.w);
+        vec4 e92 = vec4(dot(w32, ngu_luma_dense_u(4)));
+        vec4 w92 = vec4(w91.x, w91.y, e92.z, w91.w);
+        vec4 e93 = vec4(dot(w32, ngu_luma_dense_u(5)));
+        vec4 w93 = vec4(w92.x, w92.y, w92.z, e93.w);
+        vec4 e94 = (w93.wzzw + w93);
+        vec4 w94 = vec4(e94.x, e94.y, w93.z, w93.w);
+        vec4 e95 = vec4(dot(w35, ngu_luma_dense_u(20)));
+        vec4 w95 = vec4(w94.x, w94.y, e95.z, w94.w);
+        vec4 e96 = vec4(dot(w35, ngu_luma_dense_u(21)));
+        vec4 w96 = vec4(w95.x, w95.y, w95.z, e96.w);
+        vec4 e97 = (w96.wzzw + w96);
+        vec4 w97 = vec4(e97.x, e97.y, w96.z, w96.w);
+        vec4 e98 = vec4(dot(w36, ngu_luma_dense_u(36)));
+        vec4 w98 = vec4(w97.x, w97.y, e98.z, w97.w);
+        vec4 e99 = vec4(dot(w36, ngu_luma_dense_u(37)));
+        vec4 w99 = vec4(w98.x, w98.y, w98.z, e99.w);
+        vec4 e100 = (w99 + w99.xyyx);
+        vec4 w100 = vec4(w63.x, w63.y, e100.z, e100.w);
+        vec4 w101 = (w100 + ngu_luma_dense_u(48).xxxx);
+        return w101;
 }
-vec4 hook() { return ngu_luma_dense_body(); }
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 51u; i += thread_count) {
+        ngu_luma_dense_constants[i] =
+            texelFetch(LUMA_DENSE_CONSTANTS, ivec2(int(i), 0), 0);
+    }
+    barrier();
+
+    const ivec2 output_pixel = ivec2(gl_GlobalInvocationID.xy);
+    const ivec2 output_size = ivec2(HOOKED_size) + ivec2(2);
+    if (any(greaterThanEqual(output_pixel, output_size))) {
+        return;
+    }
+    const vec2 compute_pos =
+        (vec2(output_pixel) + vec2(0.5)) / vec2(output_size);
+    imageStore(out_image, output_pixel, ngu_luma_dense_body(compute_pos));
+}
 
 //!HOOK LUMA
 //!BIND HOOKED
@@ -4318,9 +1030,12 @@ vec4 hook() { return ngu_luma_dense_body(); }
 //!WIDTH HOOKED.w 2 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 1
+//!COMPUTE 8 8 8 8
+
+shared vec4 ngu_luma_scale_x_constants[2];
 
 vec4 ngu_luma_scale_x_u(int index) {
-    return texelFetch(LUMA_SCALE_X_CONSTANTS, ivec2(index, 0), 0);
+    return ngu_luma_scale_x_constants[index];
 }
 float ngu_luma_scale_x_fetch(vec2 pos) {
     ivec2 size = textureSize(HOOKED_raw, 0);
@@ -4333,10 +1048,22 @@ float ngu_luma_scale_x_fetch(vec2 pos) {
 float ngu_luma_scale_x_store(float value) {
     return floor(clamp(value, 0.0, 1.0) * 65535.0 + 0.5) / 65535.0;
 }
-vec4 hook() {
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 2u; i += thread_count) {
+        ngu_luma_scale_x_constants[i] =
+            texelFetch(LUMA_SCALE_X_CONSTANTS, ivec2(int(i), 0), 0);
+    }
+    barrier();
+
+    const ivec2 output_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (output_pixel.x >= 3840 || output_pixel.y >= 1080) {
+        return;
+    }
     const vec4 scale = ngu_luma_scale_x_u(0);
     const vec4 weights_source = ngu_luma_scale_x_u(1);
-    const vec2 uv = HOOKED_pos;
+    const vec2 uv = HOOKED_map(output_pixel);
     const float scaled = scale.x * uv.x - 2.0;
     const float fraction = fract(scaled);
     const float negative = (-fraction >= 0.0) ? 1.0 : 0.0;
@@ -4360,7 +1087,10 @@ vec4 hook() {
     float result = sample0 * weights.x + sample1 * weights.y;
     result = sample2 * weights.z + result;
     result = sample3 * weights.w + result;
-    return vec4(ngu_luma_scale_x_store(result), 0.0, 0.0, 1.0);
+    imageStore(
+        out_image,
+        output_pixel,
+        vec4(ngu_luma_scale_x_store(result), 0.0, 0.0, 1.0));
 }
 
 //!HOOK LUMA
@@ -4373,9 +1103,12 @@ vec4 hook() {
 //!HEIGHT HOOKED.h 2 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 1
+//!COMPUTE 8 8 8 8
+
+shared vec4 ngu_luma_scale_y_constants[2];
 
 vec4 ngu_luma_scale_y_u(int index) {
-    return texelFetch(LUMA_SCALE_Y_CONSTANTS, ivec2(index, 0), 0);
+    return ngu_luma_scale_y_constants[index];
 }
 float ngu_luma_scale_y_fetch(float output_x, int source_y) {
     ivec2 size = textureSize(LUMA_SCALE_X_raw, 0);
@@ -4388,10 +1121,22 @@ float ngu_luma_scale_y_fetch(float output_x, int source_y) {
 float ngu_luma_scale_y_store(float value) {
     return floor(clamp(value, 0.0, 1.0) * 65535.0 + 0.5) / 65535.0;
 }
-vec4 hook() {
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 2u; i += thread_count) {
+        ngu_luma_scale_y_constants[i] =
+            texelFetch(LUMA_SCALE_Y_CONSTANTS, ivec2(int(i), 0), 0);
+    }
+    barrier();
+
+    const ivec2 output_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (output_pixel.x >= 3840 || output_pixel.y >= 2160) {
+        return;
+    }
     const vec4 scale = ngu_luma_scale_y_u(0);
     const vec4 weights_source = ngu_luma_scale_y_u(1);
-    const vec2 uv = HOOKED_pos;
+    const vec2 uv = HOOKED_map(output_pixel);
     const float scaled = scale.x * uv.y - 2.0;
     const float fraction = fract(scaled);
     const float negative = (-fraction >= 0.0) ? 1.0 : 0.0;
@@ -4412,7 +1157,10 @@ vec4 hook() {
     float result = sample0 * weights.x + sample1 * weights.y;
     result = sample2 * weights.z + result;
     result = sample3 * weights.w + result;
-    return vec4(ngu_luma_scale_y_store(result), 0.0, 0.0, 1.0);
+    imageStore(
+        out_image,
+        output_pixel,
+        vec4(ngu_luma_scale_y_store(result), 0.0, 0.0, 1.0));
 }
 
 //!HOOK LUMA
@@ -4425,9 +1173,12 @@ vec4 hook() {
 //!HEIGHT HOOKED.h 2 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 1
+//!COMPUTE 8 8 8 8
+
+shared vec4 ngu_luma_add_constants[2];
 
 vec4 ngu_luma_add_u(int index) {
-    return texelFetch(LUMA_ADD_CONSTANTS, ivec2(index, 0), 0);
+    return ngu_luma_add_constants[index];
 }
 float ngu_luma_add_fetch_base(vec2 pos) {
     ivec2 size = textureSize(LUMA_SCALE_Y_raw, 0);
@@ -4448,10 +1199,22 @@ vec4 ngu_luma_add_fetch_dense(vec2 pos) {
 float ngu_luma_add_store(float value) {
     return floor(clamp(value, 0.0, 1.0) * 65535.0 + 0.5) / 65535.0;
 }
-vec4 hook() {
+void hook() {
+    const uint thread_count =
+        gl_WorkGroupSize.x * gl_WorkGroupSize.y * gl_WorkGroupSize.z;
+    for (uint i = gl_LocalInvocationIndex; i < 2u; i += thread_count) {
+        ngu_luma_add_constants[i] =
+            texelFetch(LUMA_ADD_CONSTANTS, ivec2(int(i), 0), 0);
+    }
+    barrier();
+
+    const ivec2 output_pixel = ivec2(gl_GlobalInvocationID.xy);
+    if (output_pixel.x >= 3840 || output_pixel.y >= 2160) {
+        return;
+    }
     const vec4 inverse_dense_size = ngu_luma_add_u(0);
     const vec4 source_size = ngu_luma_add_u(1);
-    const vec2 output_pos = HOOKED_pos;
+    const vec2 output_pos = HOOKED_map(output_pixel);
     const vec2 dense_pixel =
         floor(output_pos * source_size.xy + vec2(0.5)) + vec2(0.5);
     const vec2 dense_pos = dense_pixel * inverse_dense_size.xy;
@@ -4463,7 +1226,10 @@ vec4 hook() {
     else
         correction = (phase.x < 0.0) ? residual.y : residual.x;
     const float base = ngu_luma_add_fetch_base(output_pos);
-    return vec4(ngu_luma_add_store(base + correction), 0.0, 0.0, 1.0);
+    imageStore(
+        out_image,
+        output_pixel,
+        vec4(ngu_luma_add_store(base + correction), 0.0, 0.0, 1.0));
 }
 
 //!TEXTURE LUMA_INITIAL_CONSTANTS
