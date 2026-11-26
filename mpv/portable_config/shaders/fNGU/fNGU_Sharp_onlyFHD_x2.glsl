@@ -1,5 +1,5 @@
 /*
- * ver. 0.2.0
+ * ver 0.2.1
  */
 
 
@@ -7,7 +7,7 @@
 //!BIND HOOKED
 //!BIND LUMA_INITIAL_CONSTANTS
 //!SAVE LUMA_FEATURE_A
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] Cubici1 initial 3-pane
+//!DESC [fNGU_Sharp_onlyFHD_x2] Cubici1 initial 3-pane
 //!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
@@ -134,7 +134,7 @@ void hook() {
 //!BIND LUMA_FEATURE_A
 //!BIND LUMA_LAYER_CONSTANTS
 //!SAVE LUMA_FEATURE_B
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 0 packed 3-pane
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer group 0 packed 3-pane
 //!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
@@ -255,7 +255,7 @@ void hook() {
 //!BIND LUMA_FEATURE_B
 //!BIND LUMA_LAYER_CONSTANTS
 //!SAVE LUMA_FEATURE_A
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 1 packed 3-pane
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer group 1 packed 3-pane
 //!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
@@ -376,7 +376,7 @@ void hook() {
 //!BIND LUMA_FEATURE_A
 //!BIND LUMA_LAYER_CONSTANTS
 //!SAVE LUMA_FEATURE_B
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 2 packed 3-pane
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer group 2 packed 3-pane
 //!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
@@ -497,7 +497,7 @@ void hook() {
 //!BIND LUMA_FEATURE_B
 //!BIND LUMA_LAYER_CONSTANTS
 //!SAVE LUMA_FEATURE_A
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 3 packed 3-pane
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer group 3 packed 3-pane
 //!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
@@ -618,7 +618,7 @@ void hook() {
 //!BIND LUMA_FEATURE_A
 //!BIND LUMA_LAYER_CONSTANTS
 //!SAVE LUMA_FEATURE_B
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer group 4 packed 3-pane
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer group 4 packed 3-pane
 //!WIDTH HOOKED.w 3 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 4
@@ -739,7 +739,7 @@ void hook() {
 //!BIND LUMA_FEATURE_B
 //!BIND LUMA_DENSE_CONSTANTS
 //!SAVE LUMA_DENSE
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] dense residual 1922x1082
+//!DESC [fNGU_Sharp_onlyFHD_x2] dense residual 1922x1082
 //!WIDTH HOOKED.w 2 +
 //!HEIGHT HOOKED.h 2 +
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
@@ -1026,7 +1026,7 @@ void hook() {
 //!BIND HOOKED
 //!BIND LUMA_SCALE_X_CONSTANTS
 //!SAVE LUMA_SCALE_X
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] 1080p 2x X scale
+//!DESC [fNGU_Sharp_onlyFHD_x2] 1080p 2x X scale
 //!WIDTH HOOKED.w 2 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
 //!COMPONENTS 1
@@ -1098,7 +1098,7 @@ void hook() {
 //!BIND LUMA_SCALE_X
 //!BIND LUMA_SCALE_Y_CONSTANTS
 //!SAVE LUMA_SCALE_Y
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] 1080p 2x Y scale
+//!DESC [fNGU_Sharp_onlyFHD_x2] 1080p 2x Y scale
 //!WIDTH HOOKED.w 2 *
 //!HEIGHT HOOKED.h 2 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *
@@ -1168,7 +1168,7 @@ void hook() {
 //!BIND LUMA_SCALE_Y
 //!BIND LUMA_DENSE
 //!BIND LUMA_ADD_CONSTANTS
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] 1080p 2x dense add
+//!DESC [fNGU_Sharp_onlyFHD_x2] 1080p 2x dense add
 //!WIDTH HOOKED.w 2 *
 //!HEIGHT HOOKED.h 2 *
 //!WHEN HOOKED.w 1920 = HOOKED.h 1080 = * OUTPUT.w HOOKED.w 1.2 * > OUTPUT.h HOOKED.h 1.2 * > * *

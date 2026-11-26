@@ -1,4 +1,4 @@
-// ver. 0.1.0
+// ver 0.1.1
 
 
 //!MAGPIE EFFECT
@@ -229,7 +229,7 @@ float3 ReplaceModernLuma(float3 originalLinear, float luma) {
 }
 
 //!PASS 1
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] initial 3-MRT
+//!DESC [fNGU_Sharp_onlyFHD_x2] initial 3-MRT
 //!IN INPUT, lumaInitialConstants
 //!OUT featureA0, featureA1, featureA2
 //!BLOCK_SIZE 8
@@ -331,7 +331,7 @@ void Pass1(uint2 blockStart, uint3 threadId) {
 }
 
 //!PASS 2
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer 0 3-MRT
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer 0 3-MRT
 //!IN featureA0, featureA1, featureA2, lumaLayerConstants
 //!OUT featureB0, featureB1, featureB2
 //!BLOCK_SIZE 8
@@ -471,7 +471,7 @@ void Pass2(uint2 blockStart, uint3 threadId) {
 #undef LAYER_INPUT2
 
 //!PASS 3
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer 1 3-MRT
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer 1 3-MRT
 //!IN featureB0, featureB1, featureB2, lumaLayerConstants
 //!OUT featureA0, featureA1, featureA2
 //!BLOCK_SIZE 8
@@ -611,7 +611,7 @@ void Pass3(uint2 blockStart, uint3 threadId) {
 #undef LAYER_INPUT2
 
 //!PASS 4
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer 2 3-MRT
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer 2 3-MRT
 //!IN featureA0, featureA1, featureA2, lumaLayerConstants
 //!OUT featureB0, featureB1, featureB2
 //!BLOCK_SIZE 8
@@ -751,7 +751,7 @@ void Pass4(uint2 blockStart, uint3 threadId) {
 #undef LAYER_INPUT2
 
 //!PASS 5
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer 3 3-MRT
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer 3 3-MRT
 //!IN featureB0, featureB1, featureB2, lumaLayerConstants
 //!OUT featureA0, featureA1, featureA2
 //!BLOCK_SIZE 8
@@ -891,7 +891,7 @@ void Pass5(uint2 blockStart, uint3 threadId) {
 #undef LAYER_INPUT2
 
 //!PASS 6
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] hidden layer 4 3-MRT
+//!DESC [fNGU_Sharp_onlyFHD_x2] hidden layer 4 3-MRT
 //!IN featureA0, featureA1, featureA2, lumaLayerConstants
 //!OUT featureB0, featureB1, featureB2
 //!BLOCK_SIZE 8
@@ -1031,7 +1031,7 @@ void Pass6(uint2 blockStart, uint3 threadId) {
 #undef LAYER_INPUT2
 
 //!PASS 7
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] dense residual 1922x1082
+//!DESC [fNGU_Sharp_onlyFHD_x2] dense residual 1922x1082
 //!IN featureB0, featureB1, featureB2, lumaDenseConstants
 //!OUT denseResidual
 //!BLOCK_SIZE 8
@@ -1305,7 +1305,7 @@ void Pass7(uint2 blockStart, uint3 threadId) {
 #undef Feature2
 
 //!PASS 8
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] source Luma 2x X
+//!DESC [fNGU_Sharp_onlyFHD_x2] source Luma 2x X
 //!IN INPUT, lumaScaleXConstants
 //!OUT lumaScaleX
 //!BLOCK_SIZE 8
@@ -1369,7 +1369,7 @@ void Pass8(uint2 blockStart, uint3 threadId) {
 }
 
 //!PASS 9
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] source Luma 2x Y
+//!DESC [fNGU_Sharp_onlyFHD_x2] source Luma 2x Y
 //!IN lumaScaleX, lumaScaleYConstants
 //!OUT lumaScaleY
 //!BLOCK_SIZE 8
@@ -1428,7 +1428,7 @@ void Pass9(uint2 blockStart, uint3 threadId) {
 }
 
 //!PASS 10
-//!DESC [NGU_Sharp_veryhigh_onlyFHD_luma] dense add and RGB reconstruction
+//!DESC [fNGU_Sharp_onlyFHD_x2] dense add and RGB reconstruction
 //!IN INPUT, lumaScaleY, denseResidual, lumaAddConstants
 //!OUT OUTPUT
 //!BLOCK_SIZE 8
